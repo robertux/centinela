@@ -90,16 +90,19 @@ Public Class frmMaster
         Try
             peticion = AccesoRemoto.BinarioAObjeto(datos)
             Dim s() As String = peticion.Mensaje.Split(";")
-            'como yo ya se que es login
-            'me salto el case JAJAJAJA
-            Me.datos.Conectar()
-            peticion.objeto = Me.datos.SelecUsuario(s(1), s(2))
-            Me.datos.Desconectar()
-            'como put envio " peticion "
-            'lo haces asi:
-            Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+            Select Case s(1)
+                Case "login"
+                    Me.datos.Conectar()
+                    peticion.objeto = Me.datos.SelecUsuario(s(1), s(2))
+                    Me.datos.Desconectar()
+                    Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case ""
+                    'otracosa
+                Case Else
+                    Debug.WriteLine("")
+            End Select
         Catch ex As Exception
-            'pass
+            'ups
         End Try
     End Sub
     
