@@ -87,16 +87,20 @@ Public Class frmMaster
     End Sub     
     
     Private Sub DatosRecibidos(ByVal nCliente As Integer, ByVal datos As Byte()) Handles sServ.DataReceived
-        peticion = AccesoRemoto.BinarioAObjeto(datos)
-        Dim s() As String = peticion.Mensaje.Split(";")
-        'como yo ya se que es login
-        'me salto el case JAJAJAJA
-        Me.datos.Conectar()
-        peticion.objeto = Me.datos.SelecUsuario(s(1), s(2))
-        Me.datos.Desconectar()
-        'como put envio " peticion "
-        'lo haces asi:
-        Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+        Try
+            peticion = AccesoRemoto.BinarioAObjeto(datos)
+            Dim s() As String = peticion.Mensaje.Split(";")
+            'como yo ya se que es login
+            'me salto el case JAJAJAJA
+            Me.datos.Conectar()
+            peticion.objeto = Me.datos.SelecUsuario(s(1), s(2))
+            Me.datos.Desconectar()
+            'como put envio " peticion "
+            'lo haces asi:
+            Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+        Catch ex As Exception
+            'pass
+        End Try
     End Sub
     
 End Class
