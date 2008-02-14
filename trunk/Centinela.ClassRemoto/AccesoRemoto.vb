@@ -16,6 +16,7 @@ Namespace ClassLib
 #Region "Campos"
         'Aqui va lo de la IP y todo eso para el cliente?
         'quizas un objeto socket o algo asi
+        Friend WithEvents sClient As SocketClient
 
 
 #End Region
@@ -23,7 +24,7 @@ Namespace ClassLib
 #Region "Propiedades"
 
         'Mas propiedades magicas van aqui.
-        
+
 #End Region
 
 
@@ -33,18 +34,21 @@ Namespace ClassLib
         ''' Crea una nueva instancia de la clase Acceso a Datos
         ''' </summary>
         Public Sub New()
+            Me.sClient = New SocketClient()
         End Sub
 
         ''' <summary>
         ''' Abre una conexion remota
         ''' </summary>		
         Public Sub Conectar()
+            Me.sClient.Connect()
         End Sub
 
         ''' <summary>
         ''' Cierra una conexion remota
         ''' </summary>
         Public Sub Desconectar()
+            Me.sClient.Close()
         End Sub
 
 #Region "Usuarios"
@@ -376,6 +380,18 @@ Namespace ClassLib
         ''' <param name="nomTabla">El nombre de la tabla en la cual buscar</param>
         Public Function GetMaxId(ByVal nomTabla As String) As Integer
         End Function
+
+#Region "SocketClient"
+
+        Public Sub OnRecibirDatos(ByVal datos As String) Handles sClient.ReceiveData
+
+        End Sub
+
+        Public Sub OnRecibirImg(ByVal img As System.Drawing.Image) Handles sClient.ReceiveImage
+
+        End Sub
+
+#End Region
 
 #End Region
 

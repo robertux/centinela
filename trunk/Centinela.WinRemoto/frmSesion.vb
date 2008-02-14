@@ -3,7 +3,7 @@ Imports Centinela.ClassLib
 Public Partial Class frmSesion
     Public usr As Usuario
     Private husr As HorarioUsuario
-	private datos as New AccesoDatos()
+    Private datos As New AccesoRemoto()
 	
 	Public Sub New()
 		Me.InitializeComponent()

@@ -201,5 +201,13 @@ Imports System.Threading
 
 			Dim workerSocket As Socket = DirectCast(m_workerSocketList(clientNumber - 1), Socket)
 			workerSocket.Send(byData)
-		End Sub
-	End Class
+    End Sub
+
+    Public Sub SendImgToClient(ByVal img As System.Drawing.Image, ByVal clientNumber As Integer)
+        Dim ms As New System.IO.MemoryStream()
+        img.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
+        Dim workerSocket As Socket = DirectCast(m_workerSocketList(clientNumber - 1), Socket)
+        workerSocket.Send(ms.ToArray())
+    End Sub
+
+End Class
