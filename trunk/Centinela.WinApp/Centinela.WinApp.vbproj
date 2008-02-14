@@ -1,0 +1,356 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{A5D1A3F3-CEA3-4CB7-9A76-F1AB3C15C87D}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <MyType>WindowsForms</MyType>
+    <RootNamespace>Centinela.WinApp</RootNamespace>
+    <AssemblyName>Centinela.WinApp</AssemblyName>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartupObject>Centinela.WinApp.My.MyApplication</StartupObject>
+    <ApplicationIcon>data_server.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <DefineConstants>DEBUG=1,TRACE=1</DefineConstants>
+    <DocumentationFile>CampusWatchDog.WinApp.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <DefineConstants>TRACE=1</DefineConstants>
+    <DocumentationFile>CampusWatchDog.WinApp.xml</DocumentationFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.Targets" />
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XmlClassLib, Version=1.0.366.4559, Culture=neutral, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+    <Compile Include="dbproyectoDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbproyectoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dbproyectoDataSet.vb">
+      <DependentUpon>dbproyectoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarSensor.Designer.vb">
+      <DependentUpon>frmAgregarSensor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarSensor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfigSensores.Designer.vb">
+      <DependentUpon>frmConfigSensores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfigSensores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHorarioUsuario.Designer.vb">
+      <DependentUpon>frmHorarioUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHorarioUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteDiario.Designer.vb">
+      <DependentUpon>frmReporteDiario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteDiario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRptPorSensor.Designer.vb">
+      <DependentUpon>frmRptPorSensor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRptPorSensor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectMapa.Designer.vb">
+      <DependentUpon>frmSelectMapa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectMapa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUsuario.Designer.vb">
+      <DependentUpon>frmAddUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.vb" />
+    <Compile Include="frmAgregarMapa.Designer.vb">
+      <DependentUpon>frmAgregarMapa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarMapa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambiarClave.Designer.vb">
+      <DependentUpon>frmCambiarClave.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCambiarClave.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustodios.Designer.vb">
+      <DependentUpon>frmCustodios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustodios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMapas.Designer.vb">
+      <DependentUpon>frmMapas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMapas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSensores.Designer.vb">
+      <DependentUpon>frmSensores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSensores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSesion.Designer.vb">
+      <DependentUpon>frmSesion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSesion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.vb">
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MinimizarABandeja.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="NotificarEnBandeja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.vb" />
+    <Compile Include="ReporteLogDiario.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteLogDiario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptPorSensor.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPorSensor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SensorVisual.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicio.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="frmAgregarSensor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAgregarSensor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfigSensores.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmConfigSensores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHorarioUsuario.resx">
+      <DependentUpon>frmHorarioUsuario.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteDiario.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmReporteDiario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRptPorSensor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmRptPorSensor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectMapa.resx">
+      <DependentUpon>frmSelectMapa.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUsuario.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAddUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarMapa.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAgregarMapa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarClave.resx">
+      <DependentUpon>frmCambiarClave.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustodios.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCustodios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMapas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMapas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSensores.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSensores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSesion.resx">
+      <DependentUpon>frmSesion.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteLogDiario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteLogDiario.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptPorSensor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPorSensor.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.1.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2005 Express Edition</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\button_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\Login Manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\125.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\Calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\cancelar32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\agregar16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\aplicar16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\aplicar32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\cancelar16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\146.png" />
+    <None Include="dbproyectoDataSet.xsc">
+      <DependentUpon>dbproyectoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbproyectoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbproyectoDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbproyectoDataSet.xss">
+      <DependentUpon>dbproyectoDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data_server.ico" />
+    <Content Include="inpout32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Centinela.ClassLib\Centinela.ClassLib.vbproj">
+      <Project>{6A70C7C0-40F1-4537-8ECE-E3BA5F23DB32}</Project>
+      <Name>Centinela.ClassLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

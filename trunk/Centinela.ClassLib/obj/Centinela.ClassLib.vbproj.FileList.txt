@@ -1,0 +1,7 @@
+bin\Debug\Centinela.ClassLib.dll
+bin\Debug\Centinela.ClassLib.pdb
+bin\Debug\CampusWatchDog.ClassLib.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Centinela.ClassLib.dll
+obj\Debug\CampusWatchDog.ClassLib.xml
+obj\Debug\Centinela.ClassLib.pdb
