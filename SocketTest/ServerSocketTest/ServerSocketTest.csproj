@@ -3,7 +3,7 @@
     <ProjectGuid>{0C640CF8-F6DE-494C-A523-AB9DF28F892F}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>ServerSocketTest</RootNamespace>
     <AssemblyName>ServerSocketTest</AssemblyName>
   </PropertyGroup>
