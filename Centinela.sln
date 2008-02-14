@@ -9,6 +9,10 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Centinela.WinApp", "Centine
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Centinela.Master", "Centinela.Master\Centinela.Master.vbproj", "{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Centinela.ClassRemoto", "Centinela.ClassRemoto\Centinela.ClassRemoto.vbproj", "{BBE22AB0-A9A0-4C4F-BB43-4ADDADB7D454}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Centinela.WinRemo", "Centinela.WinRemoto\Centinela.WinRemo.vbproj", "{E25760B6-DAFA-4ECB-A154-64078089E0F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,22 @@ Global
 		{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BBE22AB0-A9A0-4C4F-BB43-4ADDADB7D454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBE22AB0-A9A0-4C4F-BB43-4ADDADB7D454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBE22AB0-A9A0-4C4F-BB43-4ADDADB7D454}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BBE22AB0-A9A0-4C4F-BB43-4ADDADB7D454}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BBE22AB0-A9A0-4C4F-BB43-4ADDADB7D454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBE22AB0-A9A0-4C4F-BB43-4ADDADB7D454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBE22AB0-A9A0-4C4F-BB43-4ADDADB7D454}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BBE22AB0-A9A0-4C4F-BB43-4ADDADB7D454}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E25760B6-DAFA-4ECB-A154-64078089E0F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E25760B6-DAFA-4ECB-A154-64078089E0F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E25760B6-DAFA-4ECB-A154-64078089E0F4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E25760B6-DAFA-4ECB-A154-64078089E0F4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E25760B6-DAFA-4ECB-A154-64078089E0F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E25760B6-DAFA-4ECB-A154-64078089E0F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E25760B6-DAFA-4ECB-A154-64078089E0F4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E25760B6-DAFA-4ECB-A154-64078089E0F4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

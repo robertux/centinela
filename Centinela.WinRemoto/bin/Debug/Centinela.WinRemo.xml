@@ -1,0 +1,303 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Centinela.WinRemo
+</name>
+</assembly>
+<members>
+<member name="F:Centinela.WinRemo.frmMain.components">
+	<summary>
+ Designer variable used to keep track of non-visual components.
+ </summary>
+</member><member name="M:Centinela.WinRemo.frmMain.Dispose(System.Boolean)">
+	<summary>
+ Disposes resources used by the form.
+ </summary>
+	<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+</member><member name="M:Centinela.WinRemo.frmMain.InitializeComponent">
+	<summary>
+ This method is required for Windows Forms designer support.
+ Do not change the method contents inside the source code editor. The Forms designer might
+ not be able to load this method if it was changed manually.
+ </summary>
+</member><member name="F:Centinela.WinRemo.frmSesion.components">
+	<summary>
+ Designer variable used to keep track of non-visual components.
+ </summary>
+</member><member name="M:Centinela.WinRemo.frmSesion.Dispose(System.Boolean)">
+	<summary>
+ Disposes resources used by the form.
+ </summary>
+	<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+</member><member name="M:Centinela.WinRemo.frmSesion.InitializeComponent">
+	<summary>
+ This method is required for Windows Forms designer support.
+ Do not change the method contents inside the source code editor. The Forms designer might
+ not be able to load this method if it was changed manually.
+ </summary>
+</member><member name="M:Centinela.WinRemo.Servicio.Inp(System.Int16)">
+	<summary>
+ Lee datos del puerto paralelo
+ </summary>
+	<param name="PortAddress">Direccion del puerto</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Centinela.WinRemo.Servicio.Outp(System.Int16,System.Int16)">
+	<summary>
+ Escribe datos en el puerto paralelo
+ </summary>
+	<param name="PortAddress">Direccion del puerto</param>
+	<param name="Value">Valor decimal a escribir</param>
+	<remarks></remarks>
+</member><member name="F:Centinela.WinRemo.Servicio._datos">
+	<summary>
+ Arreglo que contiene los bits leidos del puerto de datos
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Centinela.WinRemo.Servicio._control">
+	<summary>
+ Arreglo que contiene los bits leidos del puerto de control
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Centinela.WinRemo.Servicio._status">
+	<summary>
+ Arreglo que contiene los bits leidos del puerto de status
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Centinela.WinRemo.Servicio.PUERTODATOS">
+	<summary>
+ Representa la direccion del puerto de datos
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Centinela.WinRemo.Servicio.PUERTOSTATUS">
+	<summary>
+ Representa la direccion del puerto de status
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Centinela.WinRemo.Servicio.PUERTOCONTROL">
+	<summary>
+ Representa la direccion del puerto de control
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Centinela.WinRemo.Servicio.PRIMEROSOCHOPINES">
+	<summary>
+ Constante utilizada para representar la lectura de los 1ros 8 pines
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Centinela.WinRemo.Servicio.SEGUNDOSOCHOPINES">
+	<summary>
+ Constante utilizada para representar la lectura de los 2dos 8 pines
+ </summary>
+	<remarks></remarks>
+</member><member name="E:Centinela.WinRemo.Servicio.CambioPuertoDatos">
+	<summary>
+ Evento disparado cuando cambian los valores en el puerto de datos
+ </summary>
+	<param name="nuevoVal"></param>
+	<remarks></remarks>
+</member><member name="E:Centinela.WinRemo.Servicio.CambioPuertoControl">
+	<summary>
+ Evento disparado cuando cambian los valores en el puerto de control
+ </summary>
+	<param name="nuevoVal"></param>
+	<remarks></remarks>
+</member><member name="E:Centinela.WinRemo.Servicio.CambioPuertoStatus">
+	<summary>
+ Evento disparado cuando cambian los valores en el puerto de status
+ </summary>
+	<param name="nuevoVal"></param>
+	<remarks></remarks>
+</member><member name="P:Centinela.WinRemo.Servicio.Datos">
+	<summary>
+ Devuelve o establece la lista de bits leidos del puerto de datos
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Centinela.WinRemo.Servicio.Control">
+	<summary>
+ Devuelve o establece la lista de bits leidos del puerto de control
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Centinela.WinRemo.Servicio.Status">
+	<summary>
+ Devuelve o establece la lista de bits leidos del puerto de status
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Centinela.WinRemo.Servicio.#ctor">
+	<summary>
+ Crea una instancia de la clase servicio
+ </summary>
+</member><member name="M:Centinela.WinRemo.Servicio.#ctor(System.ComponentModel.IContainer)">
+	<summary>
+Crea una instancia de la clase servicio
+ </summary>
+</member><member name="M:Centinela.WinRemo.Servicio.Init">
+	<summary>
+Inicializa los miembros de la clase
+ </summary>
+</member><member name="M:Centinela.WinRemo.Servicio.VerificarPuertos(System.Boolean)">
+	<summary>
+Verifica el estado de los puertos
+ </summary>
+	<param name="leerPrimerosOcho">Define si se leen los primeros ocho o los segundos</param>
+</member><member name="M:Centinela.WinRemo.Servicio.ActualizarPuertoEncendido(System.Int16[])">
+	<summary>
+Actualiza el estado del puerto de encendido
+ </summary>
+	<param name="bites">los bites a escribir</param>
+</member><member name="M:Centinela.WinRemo.Servicio.ActualizarPuertoActivacion(System.Int16[])">
+	<summary>
+Actualiza el estado del puerto de activacion
+ </summary>
+	<param name="bites">los bites a escribir</param>
+</member><member name="M:Centinela.WinRemo.Servicio.BinToDec(System.Int16[])">
+	<summary>
+Convierte un arreglo de valores que representan un numero binario a su equivalente decimal
+ </summary>
+	<param name="bites">los bites a convertir</param>
+</member><member name="M:Centinela.WinRemo.Servicio.DecToBin(System.Int16)">
+	<summary>
+Convierte un numero decimal su equivalente en un arreglo de bits
+ </summary>
+	<param name="NDecimal">el numero decimal a convertir</param>
+</member><member name="M:Centinela.WinRemo.Servicio.ActualizarSensores(System.Collections.Generic.List{Centinela.WinRemo.SensorVisual}@)">
+	<summary>
+Actualiza el estado de los sensores
+ </summary>
+	<param name="sensores">La lista de sensores a actualizar</param>
+</member><member name="T:Centinela.WinRemo.Servicio">
+	<summary>
+ Representa un servicio de revision del puerto paralelo y actualizacion de sensores
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Centinela.WinRemo.SensorVisual.datos">
+	<summary>
+ Acceso a los datos de la base de datos
+ </summary>
+</member><member name="F:Centinela.WinRemo.SensorVisual._rutaImgs">
+	<summary>
+ Ruta donde buscar las imagenes
+ </summary>
+</member><member name="F:Centinela.WinRemo.SensorVisual.cfg">
+	<summary>
+ Clase que permite leer el archivo de configuracion
+ </summary>
+</member><member name="F:Centinela.WinRemo.SensorVisual.ttp">
+	<summary>
+ El nombre lo dice todo
+ </summary>
+</member><member name="F:Centinela.WinRemo.SensorVisual.snd">
+	<summary>
+ Para reproducir el sonido de alarma
+ </summary>
+</member><member name="F:Centinela.WinRemo.SensorVisual.sndFile">
+	<summary>
+ Ruta del archivo de sonido de alarma
+ </summary>
+</member><member name="F:Centinela.WinRemo.SensorVisual._sen">
+	<summary>
+ El objeto sensor
+ </summary>
+</member><member name="P:Centinela.WinRemo.SensorVisual.Sen">
+	<summary>
+ Devuelve o establece el sensor contenido
+ </summary>
+</member><member name="M:Centinela.WinRemo.SensorVisual.#ctor(Centinela.ClassLib.Sensor,Centinela.ClassLib.Mapa)">
+	<summary>
+ Crea una instancia de la clase SensorVisual
+ </summary>
+	<param name="sen">El sensor asociado</param>
+	<param name="mpaActual">el mapa en el actualmente se muestra el sensor</param>
+</member><member name="M:Centinela.WinRemo.SensorVisual.CambiarMapa(Centinela.ClassLib.Mapa)">
+	<summary>
+ Cambia de mapa y toma la nueva posicion relativa
+ </summary>
+	<param name="mpaActual">El nuevo mapa en el cual se muestra</param>
+</member><member name="M:Centinela.WinRemo.SensorVisual.CargarImagen">
+	<summary>
+ Cambia la imagen del sensor de acuerdo a su estado actual
+ </summary>
+</member><member name="M:Centinela.WinRemo.SensorVisual.Apagado(System.DateTime)">
+	<summary>
+ Actualiza el sensor visual cuando el sensor se apaga
+ </summary>
+	<param name="focur">La fecha cuando ocurre el suceso</param>
+</member><member name="M:Centinela.WinRemo.SensorVisual.Encendido(System.DateTime)">
+	<summary>
+ Actualiza el sensor visual cuando el sensor se enciende
+ </summary>
+	<param name="focur">La fecha cuando ocurre el suceso</param>
+</member><member name="M:Centinela.WinRemo.SensorVisual.Activado(System.DateTime)">
+	<summary>
+ Actualiza el sensor visual cuando el sensor se activa
+ </summary>
+	<param name="focur">La fecha cuando ocurre el suceso</param>
+</member><member name="M:Centinela.WinRemo.SensorVisual.Desactivado(System.DateTime)">
+	<summary>
+ Actualiza el sensor visual cuando el sensor se desactiva
+ </summary>
+	<param name="focur">La fecha cuando ocurre el suceso</param>
+</member><member name="M:Centinela.WinRemo.SensorVisual.ActualizarSensor">
+	<summary>
+ Actualiza el sensor visual cuando ocurre un suceso en  su sensor interno
+ </summary>
+</member><member name="T:Centinela.WinRemo.SensorVisual">
+	<summary>
+ Representa un sensor visualizable en un formulario sobre un mapa
+ </summary>
+</member><member name="M:Centinela.WinRemo.NotificarBandeja.ShellNot.SetForegroundWindow(System.IntPtr)">
+	<summary>
+ if "this.focus()" can't work, u can try this
+ </summary>
+	<param name="hwnd">this.Handle</param>
+</member><member name="M:Centinela.WinRemo.NotificarBandeja.ShellNot.GetNOTIFYICONDATA(System.IntPtr,System.String,System.String,System.String)">
+	<summary>
+ Nueva estructura de NOTIFYICONDATA
+ </summary>
+</member><member name="M:Centinela.WinRemo.NotificarBandeja.ShellNot.AddNotifyBox(System.IntPtr,System.String,System.String,System.String)">
+	<summary>
+ Agrega una Nueva Notificacion
+ </summary>
+	<param name="iconHwnd">this.icon.handle</param>
+	<param name="sTip">tooltip, 5.0 max: 128 char</param>
+	<param name="boxTitle">"Balloon Tooltip" title, max: 64 char</param>
+	<param name="boxText">"Balloon Tooltip" body, max: 256 char</param>
+	<returns>true,false,error(-1)</returns>
+</member><member name="M:Centinela.WinRemo.NotificarBandeja.ShellNot.DelNotifyBox">
+	<summary>
+ Elimina el icono de notificacion
+ </summary>
+</member><member name="M:Centinela.WinRemo.NotificarBandeja.ShellNot.ConnectMyMenu(System.IntPtr,System.IntPtr)">
+	<summary>
+ connect my contextMenu
+ </summary>
+	<param name="_formHwnd">main form handle, try: this.handle</param>
+	<param name="_contextMenuHwnd">contextMenu.handle</param>
+</member><member name="T:Centinela.WinRemo.NotificarBandeja.ShellNot">
+	<summary>
+ ShellNot Class.
+ </summary>
+</member><member name="F:Centinela.WinRemo.frmUsuarios.components">
+	<summary>
+ Designer variable used to keep track of non-visual components.
+ </summary>
+</member><member name="M:Centinela.WinRemo.frmUsuarios.Dispose(System.Boolean)">
+	<summary>
+ Disposes resources used by the form.
+ </summary>
+	<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+</member><member name="M:Centinela.WinRemo.frmUsuarios.InitializeComponent">
+	<summary>
+ This method is required for Windows Forms designer support.
+ Do not change the method contents inside the source code editor. The Forms designer might
+ not be able to load this method if it was changed manually.
+ </summary>
+</member>
+</members>
+</doc>

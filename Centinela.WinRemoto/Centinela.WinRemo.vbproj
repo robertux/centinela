@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E25760B6-DAFA-4ECB-A154-64078089E0F4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Centinela.WinRemo.My.MyApplication</StartupObject>
+    <RootNamespace>Centinela.WinRemo</RootNamespace>
+    <AssemblyName>Centinela.WinRemo</AssemblyName>
+    <MyType>WindowsForms</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Centinela.WinRemo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Centinela.WinRemo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XmlClassLib, Version=1.0.366.4559, Culture=neutral, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dbproyectoDataSet.Designer.vb">
+      <DependentUpon>dbproyectoDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="dbproyectoDataSet.vb">
+      <DependentUpon>dbproyectoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUsuario.Designer.vb">
+      <DependentUpon>frmAddUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarMapa.Designer.vb">
+      <DependentUpon>frmAgregarMapa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarMapa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarSensor.Designer.vb">
+      <DependentUpon>frmAgregarSensor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarSensor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambiarClave.Designer.vb">
+      <DependentUpon>frmCambiarClave.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCambiarClave.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfigSensores.Designer.vb">
+      <DependentUpon>frmConfigSensores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfigSensores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustodios.Designer.vb">
+      <DependentUpon>frmCustodios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustodios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHorarioUsuario.Designer.vb">
+      <DependentUpon>frmHorarioUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHorarioUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMapas.Designer.vb">
+      <DependentUpon>frmMapas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMapas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteDiario.Designer.vb">
+      <DependentUpon>frmReporteDiario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteDiario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRptPorSensor.Designer.vb">
+      <DependentUpon>frmRptPorSensor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRptPorSensor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectMapa.Designer.vb">
+      <DependentUpon>frmSelectMapa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectMapa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSensores.Designer.vb">
+      <DependentUpon>frmSensores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSensores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSesion.Designer.vb">
+      <DependentUpon>frmSesion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSesion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.vb">
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MinimizarABandeja.vb" />
+    <Compile Include="NotificarEnBandeja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.vb" />
+    <Compile Include="ReporteLogDiario.vb">
+      <DependentUpon>ReporteLogDiario.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="rptPorSensor.vb">
+      <DependentUpon>rptPorSensor.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SensorVisual.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicio.vb">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmAddUsuario.resx">
+      <DependentUpon>frmAddUsuario.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarMapa.resx">
+      <DependentUpon>frmAgregarMapa.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarSensor.resx">
+      <DependentUpon>frmAgregarSensor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarClave.resx">
+      <DependentUpon>frmCambiarClave.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfigSensores.resx">
+      <DependentUpon>frmConfigSensores.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustodios.resx">
+      <DependentUpon>frmCustodios.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHorarioUsuario.resx">
+      <DependentUpon>frmHorarioUsuario.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMapas.resx">
+      <DependentUpon>frmMapas.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteDiario.resx">
+      <DependentUpon>frmReporteDiario.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRptPorSensor.resx">
+      <DependentUpon>frmRptPorSensor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectMapa.resx">
+      <DependentUpon>frmSelectMapa.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSensores.resx">
+      <DependentUpon>frmSensores.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSesion.resx">
+      <DependentUpon>frmSesion.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteLogDiario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteLogDiario.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptPorSensor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPorSensor.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\125.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\146.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\agregar16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\aplicar16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\aplicar32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\button_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\Calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\cancelar16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\cancelar32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Media\Login Manager.png" />
+    <None Include="dbproyectoDataSet.xsc">
+      <DependentUpon>dbproyectoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbproyectoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbproyectoDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbproyectoDataSet.xss">
+      <DependentUpon>dbproyectoDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\XmlClassLib.dll" />
+    <Content Include="data_server.ico" />
+    <Content Include="inpout32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Centinela.ClassLib\Centinela.ClassLib.vbproj">
+      <Project>{6A70C7C0-40F1-4537-8ECE-E3BA5F23DB32}</Project>
+      <Name>Centinela.ClassLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Centinela.ClassRemoto\Centinela.ClassRemoto.vbproj">
+      <Project>{BBE22AB0-A9A0-4C4F-BB43-4ADDADB7D454}</Project>
+      <Name>Centinela.ClassRemoto</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
