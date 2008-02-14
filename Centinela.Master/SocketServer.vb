@@ -13,11 +13,13 @@ Imports System.Net
 Imports System.Net.Sockets
 Imports System.Collections
 Imports System.Threading
+Imports System.Runtime.Serialization.Formatters.Binary
+Imports Centinela.ClassLib
 
 	Public Class SocketServer
 		Public Delegate Sub UpdateRichEditCallback(ByVal text As String)
 		Public Delegate Sub UpdateClientListCallback()
-		Public Event DataReceived(byval nClient as Integer, byval data as String)
+    Public Event DataReceived(ByVal nClient As Integer, ByVal data As Byte())
 
 		Public pfnWorkerCallBack As AsyncCallback
 		Private m_mainSocket As Socket
@@ -95,7 +97,7 @@ Imports System.Threading
 				m_currentSocket = socket
 				m_clientNumber = clientNumber
 			End Sub
-			Public m_currentSocket As System.Net.Sockets.Socket
+        Public m_currentSocket As System.Net.Sockets.Socket
 			Public m_clientNumber As Integer
 			' Buffer to store the data sent by the client
 			Public dataBuffer As Byte() = New Byte(1023) {}
@@ -127,27 +129,16 @@ Imports System.Threading
 				' Complete the BeginReceive() asynchronous call by EndReceive() method
 				' which will return the number of characters written to the stream 
 				' by the client
-				Dim iRx As Integer = socketData.m_currentSocket.EndReceive(asyn)
-				Dim chars As Char() = New Char(iRx) {}
-				' Extract the characters as a buffer
-				Dim d As System.Text.Decoder = System.Text.Encoding.UTF8.GetDecoder()
-				Dim charLen As Integer = d.GetChars(socketData.dataBuffer, 0, iRx, chars, 0)
+            'Dim iRx As Integer = socketData.m_currentSocket.EndReceive(asyn)
 
-				Dim szData As New String(chars)
-				'Dim msg As String = "" + socketData.m_clientNumber.ToString() + ":"
-				'	//	//	//	//AppendToRichEditControl(msg + szData);
-				'MsgBox(msg + szData)
-				RaiseEvent DataReceived(socketData.m_clientNumber, szData)
+            RaiseEvent DataReceived(socketData.m_clientNumber, socketData.dataBuffer)
+            'ENVIAMOS PETICION DE REGRESO A CASA :)
+            Dim Respuesta() As Byte = AccesoRemoto.ObjetoABinario(frmMaster.peticion)
 
-				' Send back the reply to the client
-				'Dim replyMsg As String = "Server Reply:" + szData.ToUpper()
-				' Convert the reply to byte array
-				'Dim byData As Byte() = System.Text.Encoding.ASCII.GetBytes(replyMsg)
+            Dim workerSocket As Socket = DirectCast(socketData.m_currentSocket, Socket)
+            workerSocket.Send(Respuesta)
 
-				'Dim workerSocket As Socket = DirectCast(socketData.m_currentSocket, Socket)
-				'workerSocket.Send(byData)
-
-				' Continue the waiting for data on the Socket
+            ' Seguimos esperando por los datos del Socket
 
 				WaitForData(socketData.m_currentSocket, socketData.m_clientNumber)
 			Catch generatedExceptionName As ObjectDisposedException
@@ -195,12 +186,12 @@ Imports System.Threading
 			Next
 		End Sub
 
-		public Sub SendMsgToClient(ByVal msg As String, ByVal clientNumber As Integer)
-			' Convert the reply to byte array
-			Dim byData As Byte() = System.Text.Encoding.ASCII.GetBytes(msg)
+    Public Sub SendMsgToClient(ByVal msg As String, ByVal clientNumber As Integer)
+        ' Convert the reply to byte array
+        Dim byData As Byte() = System.Text.Encoding.ASCII.GetBytes(msg)
 
-			Dim workerSocket As Socket = DirectCast(m_workerSocketList(clientNumber - 1), Socket)
-			workerSocket.Send(byData)
+        Dim workerSocket As Socket = DirectCast(m_workerSocketList(clientNumber - 1), Socket)
+        workerSocket.Send(byData)
     End Sub
 
     Public Sub SendImgToClient(ByVal img As System.Drawing.Image, ByVal clientNumber As Integer)
@@ -209,5 +200,13 @@ Imports System.Threading
         Dim workerSocket As Socket = DirectCast(m_workerSocketList(clientNumber - 1), Socket)
         workerSocket.Send(ms.ToArray())
     End Sub
+
+    ''AGREGADO: RAMAYAC
+    'Public Sub SendReplyToClient(ByVal p As Peticion, ByVal clientNumber As Integer)
+    '    Dim ms As New System.IO.MemoryStream()
+    '    img.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
+    '    Dim workerSocket As Socket = DirectCast(m_workerSocketList(clientNumber - 1), Socket)
+    '    workerSocket.Send(ms.ToArray())
+    'End Sub
 
 End Class

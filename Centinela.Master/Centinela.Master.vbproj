@@ -126,6 +126,10 @@
       <Project>{6A70C7C0-40F1-4537-8ECE-E3BA5F23DB32}</Project>
       <Name>Centinela.ClassLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Centinela.ClassRemoto\Centinela.ClassRemoto.vbproj">
+      <Project>{BBE22AB0-A9A0-4C4F-BB43-4ADDADB7D454}</Project>
+      <Name>Centinela.ClassRemoto</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

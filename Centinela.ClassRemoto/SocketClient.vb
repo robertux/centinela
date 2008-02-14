@@ -31,7 +31,7 @@ Imports System.Net.Sockets
     'Public recImgs As Boolean
 
         Public Sub New()
-            Me.iP = "192.168.1.2"
+        Me.iP = "127.0.0.1"
             'textBoxIP.Text = GetIP();
         Me.port = "8000"
         'Me.recImgs = False
@@ -92,7 +92,12 @@ Imports System.Net.Sockets
     Public Function SendAndRecDataSync(ByVal data As Byte()) As Byte()
         Try
             m_clientSocket.Send(data)
-            Dim received As Byte()
+            Dim received(data.Length - 1) As Byte
+
+            For i As Integer = 0 To data.Length - 1
+                received(i) = 0
+            Next
+
             m_clientSocket.Receive(received)
             Return received
         Catch se As SocketException

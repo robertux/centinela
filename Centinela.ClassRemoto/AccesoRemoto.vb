@@ -20,7 +20,7 @@ Namespace ClassLib
         'Aqui va lo de la IP y todo eso para el cliente?
         'quizas un objeto socket o algo asi
         Friend WithEvents sClient As SocketClient
-
+        Private peticion As New Peticion()
 
 #End Region
 
@@ -54,29 +54,30 @@ Namespace ClassLib
             Me.sClient.Close()
         End Sub
 
-        <STAThread()> Public Function ObjetoABinario(ByVal objeto As Object) As Byte()
+        <STAThread()> Public Shared Function ObjetoABinario(ByVal peticion As Peticion) As Byte()
             Try
                 Dim mem As MemoryStream = New MemoryStream()
                 Dim formato As BinaryFormatter = New BinaryFormatter()
-                formato.Serialize(mem, objeto)
-                Dim bytes As Byte() = mem.GetBuffer()
+                formato.Serialize(mem, peticion)
+                Dim bytes() As Byte = mem.GetBuffer()
                 mem.Close()
                 Return bytes
             Catch ex As Exception
-                'ERROR DE CARTELERA
+                Return Nothing
             End Try
         End Function
 
-        <STAThread()> Public Function BinarioAObjeto(ByVal bytes As Byte()) As Object
+        <STAThread()> Public Shared Function BinarioAObjeto(ByVal bytes() As Byte) As Peticion
             Try
-                Dim mem As MemoryStream = New MemoryStream()
-                Dim objeto As Object = New Object()
+                Dim mem As MemoryStream = New MemoryStream(bytes)
+                Dim p As Object = New Peticion()
                 Dim formato As BinaryFormatter = New BinaryFormatter()
-                formato.Serialize(mem, objeto)
-                objeto = formato.Deserialize(mem)
-                Return objeto
+                p = CType(formato.Deserialize(mem), Peticion)
+                Return p
+                'MemoryStream memStream2 = new MemoryStream(bytes);
+                'Car car2 = (Car)formatter.Deserialize(memStream2);
             Catch ex As Exception
-                'ERROR DE CARTELERA
+                Return Nothing
             End Try
         End Function
 
@@ -117,7 +118,14 @@ Namespace ClassLib
         ''' <param name="nom">nombre del usuario dentro del registro</param>
         ''' <param name="clave">clave del usuario dentro del registro</param>
         Public Function SelecUsuario(ByVal nom As String, ByVal clave As String) As Usuario
-
+            Me.Conectar()
+            'Que vamos a hacer con el objeto enviado
+            peticion.Mensaje = "login;" + nom + ";" + clave
+            Dim b() As Byte
+            'recibir datos!
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            peticion = AccesoRemoto.BinarioAObjeto(b) 'viva el casting implicito
+            Return CType(peticion.objeto, Usuario) 'y ya?
         End Function
 
         ''' <summary>

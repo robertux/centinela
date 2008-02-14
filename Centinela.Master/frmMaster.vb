@@ -1,10 +1,13 @@
 Imports Centinela.ClassLib
 Imports System.IO
+Imports System.Runtime.Serialization.Formatters.Binary
 
 Public Class frmMaster
     Public usr As Usuario
     Private datos As ClassLib.AccesoDatos
     Private mab As MinimizarABandeja
+
+    Public peticion As New Peticion()
 
     Private sensores As List(Of Sensor)
     Private cargando As Boolean
@@ -83,8 +86,13 @@ Public Class frmMaster
         Me.srvPuertos.Stop()
     End Sub     
     
-     Private Sub DatosRecibidos(ByVal nCliente As Integer, ByVal datos As String) Handles sServ.DataReceived
-    	Msgbox(nCliente.ToString + ": " + datos)
+    Private Sub DatosRecibidos(ByVal nCliente As Integer, ByVal datos As Byte()) Handles sServ.DataReceived
+        peticion = AccesoRemoto.BinarioAObjeto(datos)
+        Dim s() As String = peticion.Mensaje.Split(";")
+        'como yo ya se que es login
+        'me salto el case JAJAJAJA  
+        peticion.objeto = Me.datos.SelecUsuario(s(1), s(2))
+        'como put envio " peticion "
     End Sub
     
 End Class
