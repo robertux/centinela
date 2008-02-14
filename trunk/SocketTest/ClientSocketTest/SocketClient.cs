@@ -75,7 +75,6 @@ namespace DefaultNamespace
 			this.buttonSendMessage.Size = new System.Drawing.Size(240, 24);
 			this.buttonSendMessage.TabIndex = 14;
 			this.buttonSendMessage.Text = "Send Message";
-			this.buttonSendMessage.Click += new System.EventHandler(this.ButtonSendMessageClick);
 			// 
 			// richTextTxMessage
 			// 
@@ -161,8 +160,13 @@ namespace DefaultNamespace
 				m_clientSocket = null;
 			}		
 		}
+
+        private void ButtonDisconnectClick(object sender, EventArgs e)
+        {
+            Close();
+        }
 		
-		public void Connect()
+		private void ButtonConnectClick(object sender, EventArgs e)
 		{
 			try
 			{
@@ -199,6 +203,16 @@ namespace DefaultNamespace
 				System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(networkStream);
 				streamWriter.WriteLine(msg);
 				streamWriter.Flush();
+                //------------------------------------------------------------------------------------------
+                byte[] data = new byte[500];                
+                m_clientSocket.Receive(data);
+                char[] chars = new char[data.Length + 1];
+                System.Text.Decoder d = System.Text.Encoding.UTF8.GetDecoder();
+                int charLen = d.GetChars(data, 0, data.Length, chars, 0);
+                System.String szData = new System.String(chars);
+                richTextRxMessage.Text = richTextRxMessage.Text + szData.ToString();
+
+                //------------------------------------------------------------------------------------------
 
 				/* Use the following code to send bytes
 				byte[] byData = System.Text.Encoding.ASCII.GetBytes(objData.ToString ());
@@ -253,7 +267,7 @@ namespace DefaultNamespace
 				System.Text.Decoder d = System.Text.Encoding.UTF8.GetDecoder();
 				int charLen = d.GetChars(theSockId.dataBuffer, 0, iRx, chars, 0);
 				System.String szData = new System.String(chars);
-				richTextRxMessage.Text = richTextRxMessage.Text + szData.ToString();
+				//richTextRxMessage.Text = richTextRxMessage.Text + szData.ToString();
 				WaitForData();
 			}
 			catch (ObjectDisposedException )
