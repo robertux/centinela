@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# SharpDevelop 2.2.1.2648
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientSocketTest", "ClientSocketTest\ClientSocketTest.csproj", "{68F7DF87-001F-40F5-A31D-A706A767D563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSocketTest", "ServerSocketTest\ServerSocketTest.csproj", "{0C640CF8-F6DE-494C-A523-AB9DF28F892F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68F7DF87-001F-40F5-A31D-A706A767D563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68F7DF87-001F-40F5-A31D-A706A767D563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68F7DF87-001F-40F5-A31D-A706A767D563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68F7DF87-001F-40F5-A31D-A706A767D563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C640CF8-F6DE-494C-A523-AB9DF28F892F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C640CF8-F6DE-494C-A523-AB9DF28F892F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C640CF8-F6DE-494C-A523-AB9DF28F892F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C640CF8-F6DE-494C-A523-AB9DF28F892F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+EndGlobal

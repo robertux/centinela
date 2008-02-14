@@ -1,0 +1,5 @@
+bin\Debug\ServerSocketTest.exe
+bin\Debug\ServerSocketTest.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\ServerSocketTest.exe
+obj\Debug\ServerSocketTest.pdb
