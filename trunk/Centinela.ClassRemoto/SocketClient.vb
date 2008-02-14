@@ -89,6 +89,18 @@ Imports System.Net.Sockets
         End Try
     End Sub
 
+    Public Function SendAndRecDataSync(ByVal data As Byte()) As Byte()
+        Try
+            m_clientSocket.Send(data)
+            Dim received As Byte()
+            m_clientSocket.Receive(received)
+            Return received
+        Catch se As SocketException
+            MessageBox.Show(se.Message)
+            Return Nothing
+        End Try
+    End Function
+
         Public Sub WaitForData()
             Try
                 If m_pfnCallBack Is Nothing Then
