@@ -50,13 +50,10 @@ Public Class frmMaster
     End Sub
 
     Private Sub ActualizarPuertosASensores(ByVal sender As Object, ByVal e As EventArgs) Handles srvPuertos.Tick
-        'If Not (Me.usr Is Nothing) Then
-        '    datos.Conectar()
-        '    If Me.lstSensores.Items.Count > 0 Then
-        '        Me.lblEstado.Text = datos.GetNombreEstadoSensor(Me.sensores(Me.lstSensores.SelectedIndex).Sen.EstadoActual)
-        '        datos.Desconectar()
-        '    End If
-        'End If
+        'Agregar try o algun tipo de seguridad aqui.
+        For Each s As Sensor In Me.sensores
+            Me.datos.ModificarSensor(s)
+        Next
     End Sub
 
     Public Sub CargarSensores()
@@ -73,10 +70,14 @@ Public Class frmMaster
     End Sub
 
     Private Sub btnComenzar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnComenzar.Click
+        CargarSensores()
         Me.srvPuertos.Start()
+        btnComenzar.Enabled = False
+        btnDetener.Enabled = True
     End Sub
 
     Private Sub btnDetener_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDetener.Click
+        btnComenzar.Enabled = True
         Me.srvPuertos.Stop()
     End Sub
 End Class
