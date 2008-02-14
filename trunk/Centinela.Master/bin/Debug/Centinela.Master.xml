@@ -6,7 +6,67 @@ Centinela.Master
 </name>
 </assembly>
 <members>
-<member name="M:Centinela.Master.Servicio.Inp(System.Int16)">
+<member name="F:Centinela.Master.frmSesion.components">
+	<summary>
+ Designer variable used to keep track of non-visual components.
+ </summary>
+</member><member name="M:Centinela.Master.frmSesion.Dispose(System.Boolean)">
+	<summary>
+ Disposes resources used by the form.
+ </summary>
+	<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+</member><member name="M:Centinela.Master.frmSesion.InitializeComponent">
+	<summary>
+ This method is required for Windows Forms designer support.
+ Do not change the method contents inside the source code editor. The Forms designer might
+ not be able to load this method if it was changed manually.
+ </summary>
+</member><member name="P:Centinela.Master.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:Centinela.Master.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+</summary>
+</member><member name="T:Centinela.Master.My.Resources.Resources">
+	<summary>
+  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+</summary>
+</member><member name="M:Centinela.Master.NotificarBandeja.ShellNot.SetForegroundWindow(System.IntPtr)">
+	<summary>
+ if "this.focus()" can't work, u can try this
+ </summary>
+	<param name="hwnd">this.Handle</param>
+</member><member name="M:Centinela.Master.NotificarBandeja.ShellNot.GetNOTIFYICONDATA(System.IntPtr,System.String,System.String,System.String)">
+	<summary>
+ Nueva estructura de NOTIFYICONDATA
+ </summary>
+</member><member name="M:Centinela.Master.NotificarBandeja.ShellNot.AddNotifyBox(System.IntPtr,System.String,System.String,System.String)">
+	<summary>
+ Agrega una Nueva Notificacion
+ </summary>
+	<param name="iconHwnd">this.icon.handle</param>
+	<param name="sTip">tooltip, 5.0 max: 128 char</param>
+	<param name="boxTitle">"Balloon Tooltip" title, max: 64 char</param>
+	<param name="boxText">"Balloon Tooltip" body, max: 256 char</param>
+	<returns>true,false,error(-1)</returns>
+</member><member name="M:Centinela.Master.NotificarBandeja.ShellNot.DelNotifyBox">
+	<summary>
+ Elimina el icono de notificacion
+ </summary>
+</member><member name="M:Centinela.Master.NotificarBandeja.ShellNot.ConnectMyMenu(System.IntPtr,System.IntPtr)">
+	<summary>
+ connect my contextMenu
+ </summary>
+	<param name="_formHwnd">main form handle, try: this.handle</param>
+	<param name="_contextMenuHwnd">contextMenu.handle</param>
+</member><member name="T:Centinela.Master.NotificarBandeja.ShellNot">
+	<summary>
+ ShellNot Class.
+ </summary>
+</member><member name="M:Centinela.Master.Servicio.Inp(System.Int16)">
 	<summary>
  Lee datos del puerto paralelo
  </summary>
@@ -141,66 +201,6 @@ Convierte un numero decimal su equivalente en un arreglo de bits
  Representa un servicio de revision del puerto paralelo y actualizacion de sensores
  </summary>
 	<remarks></remarks>
-</member><member name="M:Centinela.Master.NotificarBandeja.ShellNot.SetForegroundWindow(System.IntPtr)">
-	<summary>
- if "this.focus()" can't work, u can try this
- </summary>
-	<param name="hwnd">this.Handle</param>
-</member><member name="M:Centinela.Master.NotificarBandeja.ShellNot.GetNOTIFYICONDATA(System.IntPtr,System.String,System.String,System.String)">
-	<summary>
- Nueva estructura de NOTIFYICONDATA
- </summary>
-</member><member name="M:Centinela.Master.NotificarBandeja.ShellNot.AddNotifyBox(System.IntPtr,System.String,System.String,System.String)">
-	<summary>
- Agrega una Nueva Notificacion
- </summary>
-	<param name="iconHwnd">this.icon.handle</param>
-	<param name="sTip">tooltip, 5.0 max: 128 char</param>
-	<param name="boxTitle">"Balloon Tooltip" title, max: 64 char</param>
-	<param name="boxText">"Balloon Tooltip" body, max: 256 char</param>
-	<returns>true,false,error(-1)</returns>
-</member><member name="M:Centinela.Master.NotificarBandeja.ShellNot.DelNotifyBox">
-	<summary>
- Elimina el icono de notificacion
- </summary>
-</member><member name="M:Centinela.Master.NotificarBandeja.ShellNot.ConnectMyMenu(System.IntPtr,System.IntPtr)">
-	<summary>
- connect my contextMenu
- </summary>
-	<param name="_formHwnd">main form handle, try: this.handle</param>
-	<param name="_contextMenuHwnd">contextMenu.handle</param>
-</member><member name="T:Centinela.Master.NotificarBandeja.ShellNot">
-	<summary>
- ShellNot Class.
- </summary>
-</member><member name="P:Centinela.Master.My.Resources.Resources.ResourceManager">
-	<summary>
-  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
-</summary>
-</member><member name="P:Centinela.Master.My.Resources.Resources.Culture">
-	<summary>
-  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
-  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
-</summary>
-</member><member name="T:Centinela.Master.My.Resources.Resources">
-	<summary>
-  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
-</summary>
-</member><member name="F:Centinela.Master.frmSesion.components">
-	<summary>
- Designer variable used to keep track of non-visual components.
- </summary>
-</member><member name="M:Centinela.Master.frmSesion.Dispose(System.Boolean)">
-	<summary>
- Disposes resources used by the form.
- </summary>
-	<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-</member><member name="M:Centinela.Master.frmSesion.InitializeComponent">
-	<summary>
- This method is required for Windows Forms designer support.
- Do not change the method contents inside the source code editor. The Forms designer might
- not be able to load this method if it was changed manually.
- </summary>
 </member>
 </members>
 </doc>

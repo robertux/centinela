@@ -1,0 +1,11 @@
+bin\Debug\Centinela.ClassRemoto.dll
+bin\Debug\Centinela.ClassRemoto.pdb
+bin\Debug\Centinela.ClassNull.xml
+bin\Debug\Centinela.ClassLib.dll
+bin\Debug\Centinela.ClassLib.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Centinela.Resources.resources
+obj\Debug\Centinela.ClassRemoto.vbproj.GenerateResource.Cache
+obj\Debug\Centinela.ClassRemoto.dll
+obj\Debug\Centinela.ClassNull.xml
+obj\Debug\Centinela.ClassRemoto.pdb

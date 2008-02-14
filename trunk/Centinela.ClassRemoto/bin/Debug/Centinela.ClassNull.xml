@@ -1,0 +1,244 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Centinela.ClassRemoto
+</name>
+</assembly>
+<members>
+<member name="P:Centinela.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:Centinela.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+</summary>
+</member><member name="T:Centinela.My.Resources.Resources">
+	<summary>
+  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+</summary>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.#ctor">
+	<summary>
+ Crea una nueva instancia de la clase Acceso a Datos
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.Conectar">
+	<summary>
+ Abre una conexion remota
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.Desconectar">
+	<summary>
+ Cierra una conexion remota
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.AgregarUsuario(Centinela.ClassLib.Usuario)">
+	<summary>
+ Agrega un nuevo registro a la tabla usuarios, basado en los datos de un objeto Usuario
+ </summary>
+	<param name="usr">Usuario a agregar a la tabla</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.ModificarUsuario(Centinela.ClassLib.Usuario)">
+	<summary>
+ Modifica los valores de un registro existente en la tabla usuarios, basado en los datos de un objeto Usuario
+ </summary>
+	<param name="usr">Usuario a modificar, ya incluidos sus valores modificados</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.EliminarUsuario(Centinela.ClassLib.Usuario)">
+	<summary>
+ Elimina un registro de la tabla usuarios
+ </summary>
+	<param name="usr">Usuario a eliminar</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelecUsuario(System.String)">
+	<summary>
+ Devuelve un objeto Usuario con los datos de un registro de la tabla usuarios
+ </summary>
+	<param name="id">Id del registro a seleccionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelecUsuario(System.String,System.String)">
+	<summary>
+ Devuelve un objeto Usuario con los datos de un registro de la tabla usuarios
+ </summary>
+	<param name="nom">nombre del usuario dentro del registro</param>
+	<param name="clave">clave del usuario dentro del registro</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelectUsuarios(System.String)">
+	<summary>
+ Devuelve una lista de objetos Usuario con los datos de registros de la tabla usuarios. Si no hay condicion, devuelve todos los usuarios
+ </summary>
+	<param name="condicion">Condicion para filtrar los registros a seleccionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelecAdministrador(System.String)">
+	<summary>
+ Devuelve un objeto Administrador con los datos de un registro de la tabla administradores
+ </summary>
+	<param name="id">Id del registro a seleccionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelecAdministrador(System.String,System.String)">
+	<summary>
+ Devuelve un objeto Administrador con los datos de un registro de la tabla administradores
+ </summary>
+	<param name="nom">nombre del administrador dentro del registro</param>
+	<param name="clave">clave del administrador dentro del registro</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.AgregarSensor(Centinela.ClassLib.Sensor)">
+	<summary>
+ Agrega un nuevo registro a la tabla sensores
+ </summary>
+	<param name="sen">Objeto sensor del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.ModificarSensor(Centinela.ClassLib.Sensor)">
+	<summary>
+ Modifica los datos de un registro existente dentro de la tabla sensores
+ </summary>
+	<param name="sen">sensor a modificar, ya incluidos sus valores modificados</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.EliminarSensor(Centinela.ClassLib.Sensor)">
+	<summary>
+ Elimina un registro de la tabla sensores
+ </summary>
+	<param name="sen">Sensor a eliminar</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.GetIdEstadoSensor(System.String)">
+	<summary>
+ Devuelve el Id de un registro en la tabla de estados de sensor, basado en su nombre
+ </summary>
+	<param name="nomEstadoSensor">El nombre del estado del sensor</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.GetNombreEstadoSensor(System.Int32)">
+	<summary>
+ Devuelve el nombre de un registro en la tabla estados de sensor, basado en su Id
+ </summary>
+	<param name="idEstadoSensor">El id del estado de sensor</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.GetEstadosSensor">
+	<summary>
+ Devuelve una lista que contiene todos los nombres de los estados de sensor existentes en la tabla de estados de sensor
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.GetTiposSensor">
+	<summary>
+ Devuelve una lista que contiene todos los nombres de los tipos de sensor existentes en la tabla tipos de sensor
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.GetIdTipoSensor(System.String)">
+	<summary>
+ Devuelve el Id de un registro en la tabla de tipos de sensor, basado en su nombre
+ </summary>
+	<param name="nomTipoSensor">El nombre del tipo del sensor</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.GetNombreTipoSensor(System.Int32)">
+	<summary>
+ Devuelve el nombre de un registro en la tabla tipos de sensor, basado en su Id
+ </summary>
+	<param name="idTipoSensor">El id del tipo de sensor</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelectSensor(System.String)">
+	<summary>
+ Devuelve un objeto Sensor con los datos de un registro de la tabla sensores
+ </summary>
+	<param name="id">El id del sensor del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelectSensores">
+	<summary>
+ Devuelve una lista de objetos Sensor basados en todos los registros de la tabla sensores
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelectSensores(System.Int32)">
+	<summary>
+ Devuelve una lista de objetos Sensor basados en los registros de la tabla sensores asociados con un mapa especifico
+ </summary>
+	<param name="idMapa">el id del Mapa asociado con los sensores a seleccionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.GetPosSensor(System.Int32,System.Int32)">
+	<summary>
+ Devuelve la posicion de un sensor, en un mapa especifico
+ </summary>
+	<param name="idSen">El id del sensor</param>
+	<param name="idMapa">El id del mapa</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SetPosSensor(System.Int32,System.Int32,System.Drawing.Point)">
+	<summary>
+ Establece la posicion de un sensor, en un mapa especifico
+ </summary>
+	<param name="idSen">El id del sensor</param>
+	<param name="idMapa">El id del mapa</param>
+	<param name="nuevaPos">Un objeto Point que contiene la nueva posicion del sensor en el mapa</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.AgregarSensorMapa(System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Agrega una relacion entre un sensor existente y un mapa existente
+ </summary>
+	<param name="nuevoId">El id de la relacion</param>
+	<param name="idSen">El id del sensor a relacionar</param>
+	<param name="idMapa">El id del mapa a relacionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.EliminarSensorMapa(System.Int32,System.Int32)">
+	<summary>
+ Elimina una relacion entre un sensor existente y un mapa existente
+ </summary>
+	<param name="idSen">El id del sensor relacionado</param>
+	<param name="idMapa">El id del mapa relacionado</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.AgregarHorarioUsuario(Centinela.ClassLib.HorarioUsuario)">
+	<summary>
+ Agrega un nuevo registro a la tabla horarios de usuario
+ </summary>
+	<param name="hUsr">El objeto HorarioUsuario del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.ModificarHorarioUsuario(Centinela.ClassLib.HorarioUsuario)">
+	<summary>
+ Modifica un registro existente en la tabla horarios de usuario
+ </summary>
+	<param name="hUsr">El objeto HorarioUsuario a modificar, con sus valores ya modificados</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.EliminarHorarioUsuario(Centinela.ClassLib.HorarioUsuario)">
+	<summary>
+ Elimina un registro de la tabla de horarios de usuario
+ </summary>
+	<param name="hUsr">El horario a eliminar</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelectHorarioUsuario(System.Int32)">
+	<summary>
+ Devuelve un objeto HorarioUsuario con los valores de un registro de la tabla horarios de usuario
+ </summary>
+	<param name="idusr">el id del usuario asociado con el horario</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.AgregarLog(Centinela.ClassLib.Log)">
+	<summary>
+ Agrega un nuevo registro a la tabla log
+ </summary>
+	<param name="lg">El objeto log del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelectLogs(System.String)">
+	<summary>
+ Devuelve una lista de objetos Log en base a los registros de la tabla log
+ </summary>
+	<param name="periodo">El periodo sobre el cual filtrar los resultados a devolver</param>Public Function SelectLogs(Optional ByVal periodo As String = "true") As List(Of Log)
+
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.AgregarLogHorario(Centinela.ClassLib.LogHorario)">
+	<summary>
+ Agrega un nuevo registro a la tabla log de los horarios
+ </summary>
+	<param name="lg">El objeto LogHorario del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelectLogsHorario(System.String)">
+	<summary>
+ Devuelve una lista de objetos LogHorario basados en los registros de la tabla log de horarios
+ </summary>
+	<param name="condicion">La condicion para filtrar los registros a seleccionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelectMapas">
+	<summary>
+ Devuelve una lista de objetos Mapa basados en los registros de la tabla mapas
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SelectMapas(System.Int32)">
+	<summary>
+ Devuelve una lista de objetos Mapa relacionados con un sensor especifico
+ </summary>
+	<param name="idSen">El id del sensor relacionado</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.AgregarMapa(Centinela.ClassLib.Mapa)">
+	<summary>
+ Agrega un nuevo registro a la tabla mapas
+ </summary>
+	<param name="mpa">El objeto Mapa del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.EliminarMapa(Centinela.ClassLib.Mapa)">
+	<summary>
+ Elimina un registro existente en la tabla mapas
+ </summary>
+	<param name="mpa">El ojbeto Mapa a eliminar</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.GetImgMapa(Centinela.ClassLib.Mapa)">
+	<summary>
+ Devuelve un arreglo de bytes que representan la imagen asociada con un mapa
+ </summary>
+	<param name="mpa">El mapa asociado con la imagen</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.SetImgMapa(Centinela.ClassLib.Mapa,System.Byte[])">
+	<summary>
+ Establece un arreglo de bytes que representan la imagen asociada con un mapa
+ </summary>
+	<param name="mpa">El mapa a asociar con la imagen</param>
+	<param name="img">El arreglo de bytes a asociar con el mapa</param>
+</member><member name="M:Centinela.ClassLib.AccesoRemoto.GetMaxId(System.String)">
+	<summary>
+ Devuelve el maximo valor de Id de los registros de una tabla especifica
+ </summary>
+	<param name="nomTabla">El nombre de la tabla en la cual buscar</param>
+</member><member name="T:Centinela.ClassLib.AccesoRemoto">
+	<summary>
+ Clase que proporciona el acceso remoto
+ La idea principal del Acceso Remoto, es presentar la sustitucion de las funciones
+ de acceso a dato por cadenas de mensajes o flujos de bits serializados, para
+ enviar los datos de una ubicacion a otra remota.
+ </summary>
+</member>
+</members>
+</doc>
