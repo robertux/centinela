@@ -2,14 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MonitoreoWeb", "Centinela.MonitoreoWeb\MonitoreoWeb.vbproj", "{C30619C1-0730-44CC-97DF-180822D56863}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Centinela.ClassLib", "Centinela.ClassLib\Centinela.ClassLib.vbproj", "{6A70C7C0-40F1-4537-8ECE-E3BA5F23DB32}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Centinela.WinApp", "Centinela.WinApp\Centinela.WinApp.vbproj", "{A5D1A3F3-CEA3-4CB7-9A76-F1AB3C15C87D}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Centinela.Master", "Centinela.Master\Centinela.Master.vbproj", "{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +41,14 @@ Global
 		{A5D1A3F3-CEA3-4CB7-9A76-F1AB3C15C87D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A5D1A3F3-CEA3-4CB7-9A76-F1AB3C15C87D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A5D1A3F3-CEA3-4CB7-9A76-F1AB3C15C87D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0D37AD6C-9687-4AEE-BE7A-A6CEDB60F81D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

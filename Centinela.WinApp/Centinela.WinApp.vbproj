@@ -321,6 +321,7 @@
     <None Include="bin\Debug\Media\cancelar16.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\app.config" />
     <None Include="bin\Debug\Media\146.png" />
     <None Include="dbproyectoDataSet.xsc">
       <DependentUpon>dbproyectoDataSet.xsd</DependentUpon>
@@ -335,6 +336,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\XmlClassLib.dll" />
     <Content Include="data_server.ico" />
     <Content Include="inpout32.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
