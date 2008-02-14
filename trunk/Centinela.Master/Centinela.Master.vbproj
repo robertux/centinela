@@ -48,6 +48,7 @@
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
     <Import Include="System.Windows.Forms" />
+    <Compile Include="SocketServer.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="frmMaster.vb">

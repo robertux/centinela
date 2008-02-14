@@ -18,11 +18,8 @@ namespace DefaultNamespace
 	/// <summary>
 	/// Description of SocketServer.	
 	/// </summary>
-	public class SocketServer : System.Windows.Forms.Form
+	public class SocketServer 
 	{
-		private System.Windows.Forms.RichTextBox richTextBoxReceivedMsg;
-		private System.Windows.Forms.Label label5;
-		
 		public delegate void UpdateRichEditCallback(string text);
 		public delegate void UpdateClientListCallback();
 				
@@ -44,63 +41,11 @@ namespace DefaultNamespace
 
 		public SocketServer()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
-			InitializeComponent();
-			
 			// Display the local IP address on the GUI
 			//textBoxIP.Text = GetIP();
 			this.StartListen();
 		}
 		
-		[STAThread]
-		public static void Main(string[] args)
-		{
-			Application.Run(new SocketServer());
-		}
-		
-		#region Windows Forms Designer generated code
-		/// <summary>
-		/// This method is required for Windows Forms designer support.
-		/// Do not change the method contents inside the source code editor. The Forms designer might
-		/// not be able to load this method if it was changed manually.
-		/// </summary>
-		private void InitializeComponent() 
-		{
-			this.label5 = new System.Windows.Forms.Label();
-			this.richTextBoxReceivedMsg = new System.Windows.Forms.RichTextBox();
-			this.SuspendLayout();
-			// 
-			// label5
-			// 
-			this.label5.Location = new System.Drawing.Point(138, 9);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(192, 16);
-			this.label5.TabIndex = 10;
-			this.label5.Text = "Message Received From Clients";
-			// 
-			// richTextBoxReceivedMsg
-			// 
-			this.richTextBoxReceivedMsg.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-			this.richTextBoxReceivedMsg.Location = new System.Drawing.Point(138, 28);
-			this.richTextBoxReceivedMsg.Name = "richTextBoxReceivedMsg";
-			this.richTextBoxReceivedMsg.ReadOnly = true;
-			this.richTextBoxReceivedMsg.Size = new System.Drawing.Size(192, 140);
-			this.richTextBoxReceivedMsg.TabIndex = 9;
-			this.richTextBoxReceivedMsg.Text = "";
-			// 
-			// SocketServer
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(340, 205);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.richTextBoxReceivedMsg);
-			this.Name = "SocketServer";
-			this.Text = "SocketServer";
-			this.ResumeLayout(false);
-		}
-		#endregion
 		public void StartListen()
 		{
 			try
@@ -221,7 +166,7 @@ namespace DefaultNamespace
 
 				System.String szData = new System.String(chars);
 				string msg = "" + socketData.m_clientNumber + ":";
-				AppendToRichEditControl(msg + szData);
+//	//	//	//	//AppendToRichEditControl(msg + szData);
 
 				// Send back the reply to the client
 				string replyMsg = "Server Reply:" + szData.ToUpper(); 
@@ -243,8 +188,7 @@ namespace DefaultNamespace
 			{
 				if(se.ErrorCode == 10054) // Error code for Connection reset by peer
 				{	
-					string msg = "Client " + socketData.m_clientNumber + " Disconnected" + "\n";
-					AppendToRichEditControl(msg);
+					string msg = "Client " + socketData.m_clientNumber + " Disconnected" + "\n";					
 
 					// Remove the reference to the worker socket of the closed client
 					// so that this object will get garbage collected
@@ -255,37 +199,6 @@ namespace DefaultNamespace
 					MessageBox.Show (se.Message );
 				}
 			}
-		}
-		// This method could be called by either the main thread or any of the
-		// worker threads
-		private void AppendToRichEditControl(string msg) 
-		{
-			// Check to see if this method is called from a thread 
-			// other than the one created the control
-			if (InvokeRequired) 
-			{
-				// We cannot update the GUI on this thread.
-				// All GUI controls are to be updated by the main (GUI) thread.
-				// Hence we will use the invoke method on the control which will
-				// be called when the Main thread is free
-				// Do UI update on UI thread
-				object[] pList = {msg};
-				richTextBoxReceivedMsg.BeginInvoke(new UpdateRichEditCallback(OnUpdateRichEdit), pList);
-			}
-			else
-			{
-				// This is the main thread which created this control, hence update it
-				// directly 
-				OnUpdateRichEdit(msg);
-			}
-		}
-		// This UpdateRichEdit will be run back on the UI thread
-		// (using System.EventHandler signature
-		// so we don't need to define a new
-		// delegate type here)
-		private void OnUpdateRichEdit(string msg) 
-		{
-			richTextBoxReceivedMsg.AppendText(msg);
 		}
 	
 		String GetIP()
@@ -330,11 +243,6 @@ namespace DefaultNamespace
 
 			Socket workerSocket = (Socket)m_workerSocketList[clientNumber - 1];
 			workerSocket.Send(byData);
-		}
-
-		private void btnClear_Click(object sender, System.EventArgs e)
-		{
-			richTextBoxReceivedMsg.Clear();
 		}
 	}
 }

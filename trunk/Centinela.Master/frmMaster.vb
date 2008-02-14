@@ -8,11 +8,13 @@ Public Class frmMaster
 
     Private sensores As List(Of Sensor)
     Private cargando As Boolean
+    private sServ as SocketServer
 
     Public Notificador As NotificarBandeja.ShellNot = New NotificarBandeja.ShellNot()
 
     Sub MainFormLoad(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Me.datos = New AccesoDatos()
+        me.sServ = new SocketServer()
         Dim sesion As New frmSesion()
         sesion.ShowDialog(Me)
         Me.usr = sesion.usr
