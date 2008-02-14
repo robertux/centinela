@@ -5,11 +5,11 @@ Namespace ClassLib
 	''' <summary>
     ''' Representa una clase capaz de almacenar una lista de logs en un archivo XML
     ''' </summary>
-    Public Class XmlSensorLog
+    <Serializable()> Public Class XmlSensorLog
 
-		''' <summary>
-	    ''' Genera un archivo XML con la lista de logs encontrados en la tabla log de la base de datos
-	    ''' </summary>
+        ''' <summary>
+        ''' Genera un archivo XML con la lista de logs encontrados en la tabla log de la base de datos
+        ''' </summary>
         ''' <param name="periodo">Define un periodo para filtrar la lista de logs a generar</param>
         ''' <param name="nombreArchivoXml">Define el nombre del archivo XML en el cual guardar la lista de logs. Por defecto es bdlog.xml</param>
         Public Shared Sub GenerarXml(Optional ByVal periodo As String = "", Optional ByVal nombreArchivoXml As String = "")

@@ -1,6 +1,6 @@
 Namespace ClassLib
 
-    Public Class ActividadProgramada
+    <Serializable()> Public Class ActividadProgramada
 
 #Region "Campos"
 

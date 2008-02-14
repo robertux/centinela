@@ -3,26 +3,26 @@ Namespace ClassLib
 	''' <summary>
     ''' Representa un mapa en el cual visualizar sensores
     ''' </summary>
-    Public Class Mapa
+    <Serializable()> Public Class Mapa
 
 #Region "Campos"
 
-		''' <summary>
-	    ''' Identificador unico del mapa
-	    ''' </summary>
+        ''' <summary>
+        ''' Identificador unico del mapa
+        ''' </summary>
         Private _id As Integer
-		''' <summary>
-	    ''' Nombre representativo del mapa
-	    ''' </summary>
+        ''' <summary>
+        ''' Nombre representativo del mapa
+        ''' </summary>
         Private _nombre As String
 
 #End Region
 
 #Region "Propiedades"
 
-		''' <summary>
-	    ''' Devuelve o establece el identificador del mapa
-	    ''' </summary>
+        ''' <summary>
+        ''' Devuelve o establece el identificador del mapa
+        ''' </summary>
         Public Property Id() As Integer
             Get
                 Return Me._id
@@ -32,9 +32,9 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
-	    ''' Devuelve o establece el nombre del mapa
-	    ''' </summary>
+        ''' <summary>
+        ''' Devuelve o establece el nombre del mapa
+        ''' </summary>
         Public Property Nombre() As String
             Get
                 Return Me._nombre
@@ -48,9 +48,9 @@ Namespace ClassLib
 
 #Region "Metodos"
 
-		''' <summary>
-	    ''' Crea una nueva instancia de la clase Mapa
-	    ''' </summary>
+        ''' <summary>
+        ''' Crea una nueva instancia de la clase Mapa
+        ''' </summary>
         ''' <param name="newId">El id del mapa</param>
         ''' <param name="newNombre">El nombre del mapa</param>
         Public Sub New(ByVal newId As Integer, ByVal newNombre As String)

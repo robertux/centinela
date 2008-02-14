@@ -1,6 +1,6 @@
 Namespace ClassLib
 
-    Public Class Vigilante
+    <Serializable()> Public Class Vigilante
 
 #Region "Campos"
 

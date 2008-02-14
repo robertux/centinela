@@ -2,31 +2,31 @@ Namespace ClassLib
 	''' <summary>
     ''' Representa el horario de acceso al sistema por un usuario
     ''' </summary>
-    Public Class HorarioUsuario
+    <Serializable()> Public Class HorarioUsuario
 
 #Region "Campos"
 
-		''' <summary>
+        ''' <summary>
         ''' Identificador unico para cada registro en la base de datos
         ''' </summary>
         Private _id As Integer
-		''' <summary>
+        ''' <summary>
         ''' Hora  inicial de acceso
         ''' </summary>
         Private _horaInicio As DateTime
-		''' <summary>
+        ''' <summary>
         ''' Hora final de acceso
         ''' </summary>
         Private _horaFin As DateTime
-		''' <summary>
+        ''' <summary>
         ''' Fecha inicial de acceso
         ''' </summary>
         Private _fechaInicio As DateTime
-		''' <summary>
+        ''' <summary>
         ''' Fecha final de acceso
         ''' </summary>
         Private _fechaFin As DateTime
-		''' <summary>
+        ''' <summary>
         ''' Id del usuario relacionado con el horario
         ''' </summary>
         Private _fkIdUsuario As Integer
@@ -35,7 +35,7 @@ Namespace ClassLib
 
 #Region "Propiedades"
 
-		''' <summary>
+        ''' <summary>
         ''' Devuelve o establece el id del horario
         ''' </summary>
         Public Property Id() As Integer
@@ -47,7 +47,7 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
+        ''' <summary>
         ''' Devuelve o establece la hora inicial de acceso
         ''' </summary>
         Public Property HoraInicio() As DateTime
@@ -59,7 +59,7 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
+        ''' <summary>
         ''' Devuelve o establece la hora final de acceso
         ''' </summary>
         Public Property HoraFin() As DateTime
@@ -71,7 +71,7 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
+        ''' <summary>
         ''' Devuelve o establece la fecha inicial de acceso
         ''' </summary>
         Public Property FechaInicio() As DateTime
@@ -83,7 +83,7 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
+        ''' <summary>
         ''' Devuelve o establece la fecha final de acceso
         ''' </summary>
         Public Property FechaFin() As DateTime
@@ -95,7 +95,7 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
+        ''' <summary>
         ''' Devuelve o establece el Id del usuario asociado con el horario
         ''' </summary>
         Public Property Usuario() As Integer
@@ -110,7 +110,7 @@ Namespace ClassLib
 #End Region
 
 #Region "Metodos"
-		''' <summary>
+        ''' <summary>
         ''' Crea una nueva instancia de la clase HorarioUsuario
         ''' </summary>
         ''' <param name="id">El id del horario</param>

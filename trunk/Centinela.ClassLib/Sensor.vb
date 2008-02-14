@@ -5,59 +5,59 @@ Namespace ClassLib
 	''' <summary>
     ''' Representa un Sensor
     ''' </summary>
-    Public Class Sensor
+    <Serializable()> Public Class Sensor
 
 #Region "Campos"
 
-		''' <summary>
-	    ''' Identificador unico del sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Identificador unico del sensor
+        ''' </summary>
         Private _id As Integer
-		''' <summary>
-	    ''' Nombre representativo del sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Nombre representativo del sensor
+        ''' </summary>
         Private _nombre As String
-		''' <summary>
-	    ''' Id del estado actual del sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Id del estado actual del sensor
+        ''' </summary>
         Private _estadoActual As Integer
-		''' <summary>
-	    ''' Id del tipo de sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Id del tipo de sensor
+        ''' </summary>
         Private _tipo As Integer
-		''' <summary>
-	    ''' Numero de pin asociado con el sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Numero de pin asociado con el sensor
+        ''' </summary>
         Private _pin As Integer
 
 #End Region
 
 #Region "Eventos"
 
-		''' <summary>
-	    ''' Evento disparado cuando se enciende un sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Evento disparado cuando se enciende un sensor
+        ''' </summary>
         Public Event onEncender(ByVal fhOcur As DateTime)
-		''' <summary>
-	    ''' Evento disparado cuando se apaga un sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Evento disparado cuando se apaga un sensor
+        ''' </summary>
         Public Event onApagar(ByVal fhOcur As DateTime)
-		''' <summary>
-	    ''' Evento disparado cuando se activa un sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Evento disparado cuando se activa un sensor
+        ''' </summary>
         Public Event onActivar(ByVal fhOcur As DateTime)
-		''' <summary>
-	    ''' Evento disparado cuando se desactiva un sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Evento disparado cuando se desactiva un sensor
+        ''' </summary>
         Public Event onDesactivar(ByVal fhOcur As DateTime)
 
 #End Region
 
 #Region "Propiedades"
 
-		''' <summary>
-	    ''' Devuelve o establece el id del sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Devuelve o establece el id del sensor
+        ''' </summary>
         Public Property Id() As Integer
             Get
                 Return Me._id
@@ -67,9 +67,9 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
-	    ''' Devuelve o establece el nombre del sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Devuelve o establece el nombre del sensor
+        ''' </summary>
         Public Property Nombre() As String
             Get
                 Return Me._nombre
@@ -79,9 +79,9 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
-	    ''' Devuelve o establece el id del estado actual del sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Devuelve o establece el id del estado actual del sensor
+        ''' </summary>
         Public Property EstadoActual() As Integer
             Get
                 Return Me._estadoActual
@@ -96,9 +96,9 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
-	    ''' Devuelve o establece el id del tipo de sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Devuelve o establece el id del tipo de sensor
+        ''' </summary>
         Public Property Tipo() As Integer
             Get
                 Return Me._tipo
@@ -108,9 +108,9 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
+        ''' <summary>
         ''' Devuelve o establece el numero del pin asociado con el sensor
-	    ''' </summary>
+        ''' </summary>
         Public Property Pin() As Integer
             Get
                 Return Me._pin
@@ -124,9 +124,9 @@ Namespace ClassLib
 
 #Region "Metodos"
 
-		''' <summary>
-	    ''' Crea una nueva instancia de la clase sensor
-	    ''' </summary>
+        ''' <summary>
+        ''' Crea una nueva instancia de la clase sensor
+        ''' </summary>
         ''' <param name="id">El id del sensor</param>
         ''' <param name="nom">El nombre del sensor</param>
         ''' <param name="tipo">El id del tipo de sensor</param>
@@ -140,9 +140,9 @@ Namespace ClassLib
             Me.Pin = pn
         End Sub
 
-		''' <summary>
-	    ''' Cambia el estado del sensor a Encendido
-	    ''' </summary>
+        ''' <summary>
+        ''' Cambia el estado del sensor a Encendido
+        ''' </summary>
         ''' <param name="autoActivar">Si es verdadero, activa automaticamente el sensor</param>
         Public Sub Encender(Optional ByVal autoActivar As Boolean = False)
             If (Me.EstadoActual = 1) Then
@@ -157,9 +157,9 @@ Namespace ClassLib
             End If
         End Sub
 
-		''' <summary>
-	    ''' Cambia el estado del sensor a Apagado
-	    ''' </summary>
+        ''' <summary>
+        ''' Cambia el estado del sensor a Apagado
+        ''' </summary>
         Public Sub Apagar()
             If (Me.EstadoActual = 2) Then
                 Me._estadoActual = 1
@@ -167,9 +167,9 @@ Namespace ClassLib
             End If
         End Sub
 
-		''' <summary>
-	    ''' Cambia el estado del sensor a Activo
-	    ''' </summary>
+        ''' <summary>
+        ''' Cambia el estado del sensor a Activo
+        ''' </summary>
         Public Sub Activar()
             If (Me.EstadoActual <> 3) Then
                 Me._estadoActual = 3
@@ -177,9 +177,9 @@ Namespace ClassLib
             End If
         End Sub
 
-		''' <summary>
-	    ''' Cambia el estado del sensor a Inactivo
-	    ''' </summary>
+        ''' <summary>
+        ''' Cambia el estado del sensor a Inactivo
+        ''' </summary>
         Public Sub Desactivar()
             If (Me.EstadoActual <> 2) Then
                 Me._estadoActual = 2
