@@ -1,0 +1,60 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{6A70C7C0-40F1-4537-8ECE-E3BA5F23DB32}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <MyType>Windows</MyType>
+    <RootNamespace>Centinela</RootNamespace>
+    <AssemblyName>Centinela.ClassLib</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <DefineConstants>DEBUG=1,TRACE=1</DefineConstants>
+    <DocumentationFile>CampusWatchDog.ClassLib.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <DefineConstants>TRACE=1</DefineConstants>
+    <DocumentationFile>CampusWatchDog.ClassLib.xml</DocumentationFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.Targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Compile Include="AccesoDatos.vb" />
+    <Compile Include="ActividadProgramada.vb" />
+    <Compile Include="Administrador.vb" />
+    <Compile Include="AssemblyInfo.vb" />
+    <Compile Include="Custodio.vb" />
+    <Compile Include="EstadoTarea.vb" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Periodo.vb.old" />
+    <Compile Include="HorarioUsuario.vb" />
+    <Compile Include="Log.vb" />
+    <Compile Include="LogHorario.vb" />
+    <Compile Include="Mapa.vb" />
+    <Compile Include="Sensor.vb" />
+    <Compile Include="Usuario.vb" />
+    <Compile Include="VigilanciaProgramada.vb" />
+    <Compile Include="XmlSensorLog.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+</Project>

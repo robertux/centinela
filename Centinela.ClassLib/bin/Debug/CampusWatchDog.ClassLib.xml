@@ -1,0 +1,609 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Centinela.ClassLib
+</name>
+</assembly>
+<members>
+<member name="F:Centinela.ClassLib.Log._id">
+	<summary>
+ El identificador unico del log
+ </summary>
+</member><member name="F:Centinela.ClassLib.Log._idSensor">
+	<summary>
+ El identificador del sensor asociado con el suceso
+ </summary>
+</member><member name="F:Centinela.ClassLib.Log._idEstadoSensor">
+	<summary>
+ El identificador del estado actual del sensor
+ </summary>
+</member><member name="F:Centinela.ClassLib.Log._suceso">
+	<summary>
+ Descripcion del suceso ocurrido
+ </summary>
+</member><member name="F:Centinela.ClassLib.Log._fechaHora">
+	<summary>
+ Fecha y hora de ocurrencia del suceso
+ </summary>
+</member><member name="F:Centinela.ClassLib.Log._IdUsuario">
+	<summary>
+ Id del usuario logueado al momento de ocurrir el suceso
+ </summary>
+</member><member name="F:Centinela.ClassLib.Log._nomSensor">
+	<summary>
+ Nombre del sensor asociado
+ </summary>
+</member><member name="P:Centinela.ClassLib.Log.Id">
+	<summary>
+ Devuelve o establece el identificador del log
+ </summary>
+</member><member name="P:Centinela.ClassLib.Log.IdSensor">
+	<summary>
+ Devuelve o establece el id del sensor asociado
+ </summary>
+</member><member name="P:Centinela.ClassLib.Log.IdEstadoSensor">
+	<summary>
+ Devuelve o establece el id del estado del sensor
+ </summary>
+</member><member name="P:Centinela.ClassLib.Log.Suceso">
+	<summary>
+ Devuelve o establece la descripcion del suceso ocurrido
+ </summary>
+</member><member name="P:Centinela.ClassLib.Log.FechaHora">
+	<summary>
+ Devuelve o establece la fecha y la hora a la que ocurrio el suceso
+ </summary>
+</member><member name="P:Centinela.ClassLib.Log.IdUsuario">
+	<summary>
+ Devuelve o establece el id del usuario logueado durante el suceso
+ </summary>
+</member><member name="P:Centinela.ClassLib.Log.NomSensor">
+	<summary>
+ Devuelve o establece el nombre del sensor asociado
+ </summary>
+</member><member name="M:Centinela.ClassLib.Log.#ctor(System.Int32,System.Int32,System.Int32,System.String,System.DateTime,System.Int32,System.String)">
+	<summary>
+ Crea una nueva instancia de la clase Log
+ </summary>
+	<param name="id">El id del log</param>
+	<param name="idSen">El id del sensor asociado</param>
+	<param name="idEstSen">El id del estado del sensor</param>
+	<param name="succ">La descripcion del suceso ocurrido</param>
+	<param name="fechaHr">La fecha y hora cuando ocurrio el suceso</param>
+	<param name="idUsr">el Id del usuario logueado</param>
+	<param name="NomSen">el nombre del sensor</param>
+</member><member name="T:Centinela.ClassLib.Log">
+	<summary>
+ Representa un log de un suceso relacionado con un sensor
+ </summary>
+</member><member name="M:Centinela.ClassLib.XmlSensorLog.GenerarXml(System.String,System.String)">
+	<summary>
+ Genera un archivo XML con la lista de logs encontrados en la tabla log de la base de datos
+ </summary>
+	<param name="periodo">Define un periodo para filtrar la lista de logs a generar</param>
+	<param name="nombreArchivoXml">Define el nombre del archivo XML en el cual guardar la lista de logs. Por defecto es bdlog.xml</param>
+</member><member name="T:Centinela.ClassLib.XmlSensorLog">
+	<summary>
+ Representa una clase capaz de almacenar una lista de logs en un archivo XML
+ </summary>
+</member><member name="F:Centinela.ClassLib.HorarioUsuario._id">
+	<summary>
+ Identificador unico para cada registro en la base de datos
+ </summary>
+</member><member name="F:Centinela.ClassLib.HorarioUsuario._horaInicio">
+	<summary>
+ Hora  inicial de acceso
+ </summary>
+</member><member name="F:Centinela.ClassLib.HorarioUsuario._horaFin">
+	<summary>
+ Hora final de acceso
+ </summary>
+</member><member name="F:Centinela.ClassLib.HorarioUsuario._fechaInicio">
+	<summary>
+ Fecha inicial de acceso
+ </summary>
+</member><member name="F:Centinela.ClassLib.HorarioUsuario._fechaFin">
+	<summary>
+ Fecha final de acceso
+ </summary>
+</member><member name="F:Centinela.ClassLib.HorarioUsuario._fkIdUsuario">
+	<summary>
+ Id del usuario relacionado con el horario
+ </summary>
+</member><member name="P:Centinela.ClassLib.HorarioUsuario.Id">
+	<summary>
+ Devuelve o establece el id del horario
+ </summary>
+</member><member name="P:Centinela.ClassLib.HorarioUsuario.HoraInicio">
+	<summary>
+ Devuelve o establece la hora inicial de acceso
+ </summary>
+</member><member name="P:Centinela.ClassLib.HorarioUsuario.HoraFin">
+	<summary>
+ Devuelve o establece la hora final de acceso
+ </summary>
+</member><member name="P:Centinela.ClassLib.HorarioUsuario.FechaInicio">
+	<summary>
+ Devuelve o establece la fecha inicial de acceso
+ </summary>
+</member><member name="P:Centinela.ClassLib.HorarioUsuario.FechaFin">
+	<summary>
+ Devuelve o establece la fecha final de acceso
+ </summary>
+</member><member name="P:Centinela.ClassLib.HorarioUsuario.Usuario">
+	<summary>
+ Devuelve o establece el Id del usuario asociado con el horario
+ </summary>
+</member><member name="M:Centinela.ClassLib.HorarioUsuario.#ctor(System.Int32,System.DateTime,System.DateTime,System.DateTime,System.DateTime,System.Int32)">
+	<summary>
+ Crea una nueva instancia de la clase HorarioUsuario
+ </summary>
+	<param name="id">El id del horario</param>
+	<param name="horaInicio">La hora de inicio del horario</param>
+	<param name="horafin">La hora de finalizacion del horario</param>
+	<param name="fechainicio">La fecha de inicio del horario</param>
+	<param name="fechafin">La fecha de finalizacion del horario</param>
+	<param name="fkidusuario">El id del usuario asociado con el horario</param>
+</member><member name="T:Centinela.ClassLib.HorarioUsuario">
+	<summary>
+ Representa el horario de acceso al sistema por un usuario
+ </summary>
+</member><member name="F:Centinela.ClassLib.AccesoDatos._con">
+	<summary>
+ Objeto para realizar conexiones a la base de datos
+ </summary>
+</member><member name="F:Centinela.ClassLib.AccesoDatos._cmd">
+	<summary>
+ Objeto para realizar consultas SQL sobre la base de datos usando la conexion
+ </summary>
+</member><member name="P:Centinela.ClassLib.AccesoDatos.Estado">
+	<summary>
+ Devuelve el estado actual de la conexion a la base de datos
+ </summary>
+</member><member name="P:Centinela.ClassLib.AccesoDatos.ConnectionString">
+	<summary>
+ Devuelve la cadena de conexion necesaria para establecer una conexion a la base de datos
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.#ctor">
+	<summary>
+ Crea una nueva instancia de la clase Acceso a Datos
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.Conectar">
+	<summary>
+ Abre una conexion a la base de datos
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.Desconectar">
+	<summary>
+ Cierra una conexion a la base de datos
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.AgregarUsuario(Centinela.ClassLib.Usuario)">
+	<summary>
+ Agrega un nuevo registro a la tabla usuarios, basado en los datos de un objeto Usuario
+ </summary>
+	<param name="usr">Usuario a agregar a la tabla</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.ModificarUsuario(Centinela.ClassLib.Usuario)">
+	<summary>
+ Modifica los valores de un registro existente en la tabla usuarios, basado en los datos de un objeto Usuario
+ </summary>
+	<param name="usr">Usuario a modificar, ya incluidos sus valores modificados</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.EliminarUsuario(Centinela.ClassLib.Usuario)">
+	<summary>
+ Elimina un registro de la tabla usuarios
+ </summary>
+	<param name="usr">Usuario a eliminar</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelecUsuario(System.String)">
+	<summary>
+ Devuelve un objeto Usuario con los datos de un registro de la tabla usuarios
+ </summary>
+	<param name="id">Id del registro a seleccionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelecUsuario(System.String,System.String)">
+	<summary>
+ Devuelve un objeto Usuario con los datos de un registro de la tabla usuarios
+ </summary>
+	<param name="nom">nombre del usuario dentro del registro</param>
+	<param name="clave">clave del usuario dentro del registro</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelectUsuarios(System.String)">
+	<summary>
+ Devuelve una lista de objetos Usuario con los datos de registros de la tabla usuarios. Si no hay condicion, devuelve todos los usuarios
+ </summary>
+	<param name="condicion">Condicion para filtrar los registros a seleccionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelecAdministrador(System.String)">
+	<summary>
+ Devuelve un objeto Administrador con los datos de un registro de la tabla administradores
+ </summary>
+	<param name="id">Id del registro a seleccionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelecAdministrador(System.String,System.String)">
+	<summary>
+ Devuelve un objeto Administrador con los datos de un registro de la tabla administradores
+ </summary>
+	<param name="nom">nombre del administrador dentro del registro</param>
+	<param name="clave">clave del administrador dentro del registro</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.AgregarSensor(Centinela.ClassLib.Sensor)">
+	<summary>
+ Agrega un nuevo registro a la tabla sensores
+ </summary>
+	<param name="sen">Objeto sensor del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.ModificarSensor(Centinela.ClassLib.Sensor)">
+	<summary>
+ Modifica los datos de un registro existente dentro de la tabla sensores
+ </summary>
+	<param name="sen">sensor a modificar, ya incluidos sus valores modificados</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.EliminarSensor(Centinela.ClassLib.Sensor)">
+	<summary>
+ Elimina un registro de la tabla sensores
+ </summary>
+	<param name="sen">Sensor a eliminar</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.GetIdEstadoSensor(System.String)">
+	<summary>
+ Devuelve el Id de un registro en la tabla de estados de sensor, basado en su nombre
+ </summary>
+	<param name="nomEstadoSensor">El nombre del estado del sensor</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.GetNombreEstadoSensor(System.Int32)">
+	<summary>
+ Devuelve el nombre de un registro en la tabla estados de sensor, basado en su Id
+ </summary>
+	<param name="idEstadoSensor">El id del estado de sensor</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.GetEstadosSensor">
+	<summary>
+ Devuelve una lista que contiene todos los nombres de los estados de sensor existentes en la tabla de estados de sensor
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.GetTiposSensor">
+	<summary>
+ Devuelve una lista que contiene todos los nombres de los tipos de sensor existentes en la tabla tipos de sensor
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.GetIdTipoSensor(System.String)">
+	<summary>
+ Devuelve el Id de un registro en la tabla de tipos de sensor, basado en su nombre
+ </summary>
+	<param name="nomTipoSensor">El nombre del tipo del sensor</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.GetNombreTipoSensor(System.Int32)">
+	<summary>
+ Devuelve el nombre de un registro en la tabla tipos de sensor, basado en su Id
+ </summary>
+	<param name="idTipoSensor">El id del tipo de sensor</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelectSensor(System.String)">
+	<summary>
+ Devuelve un objeto Sensor con los datos de un registro de la tabla sensores
+ </summary>
+	<param name="id">El id del sensor del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelectSensores">
+	<summary>
+ Devuelve una lista de objetos Sensor basados en todos los registros de la tabla sensores
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelectSensores(System.Int32)">
+	<summary>
+ Devuelve una lista de objetos Sensor basados en los registros de la tabla sensores asociados con un mapa especifico
+ </summary>
+	<param name="idMapa">el id del Mapa asociado con los sensores a seleccionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.GetPosSensor(System.Int32,System.Int32)">
+	<summary>
+ Devuelve la posicion de un sensor, en un mapa especifico
+ </summary>
+	<param name="idSen">El id del sensor</param>
+	<param name="idMapa">El id del mapa</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SetPosSensor(System.Int32,System.Int32,System.Drawing.Point)">
+	<summary>
+ Establece la posicion de un sensor, en un mapa especifico
+ </summary>
+	<param name="idSen">El id del sensor</param>
+	<param name="idMapa">El id del mapa</param>
+	<param name="nuevaPos">Un objeto Point que contiene la nueva posicion del sensor en el mapa</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.AgregarSensorMapa(System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Agrega una relacion entre un sensor existente y un mapa existente
+ </summary>
+	<param name="nuevoId">El id de la relacion</param>
+	<param name="idSen">El id del sensor a relacionar</param>
+	<param name="idMapa">El id del mapa a relacionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.EliminarSensorMapa(System.Int32,System.Int32)">
+	<summary>
+ Elimina una relacion entre un sensor existente y un mapa existente
+ </summary>
+	<param name="idSen">El id del sensor relacionado</param>
+	<param name="idMapa">El id del mapa relacionado</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.AgregarHorarioUsuario(Centinela.ClassLib.HorarioUsuario)">
+	<summary>
+ Agrega un nuevo registro a la tabla horarios de usuario
+ </summary>
+	<param name="hUsr">El objeto HorarioUsuario del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.ModificarHorarioUsuario(Centinela.ClassLib.HorarioUsuario)">
+	<summary>
+ Modifica un registro existente en la tabla horarios de usuario
+ </summary>
+	<param name="hUsr">El objeto HorarioUsuario a modificar, con sus valores ya modificados</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.EliminarHorarioUsuario(Centinela.ClassLib.HorarioUsuario)">
+	<summary>
+ Elimina un registro de la tabla de horarios de usuario
+ </summary>
+	<param name="hUsr">El horario a eliminar</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelectHorarioUsuario(System.Int32)">
+	<summary>
+ Devuelve un objeto HorarioUsuario con los valores de un registro de la tabla horarios de usuario
+ </summary>
+	<param name="idusr">el id del usuario asociado con el horario</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.AgregarLog(Centinela.ClassLib.Log)">
+	<summary>
+ Agrega un nuevo registro a la tabla log
+ </summary>
+	<param name="lg">El objeto log del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelectLogs(System.String)">
+	<summary>
+ Devuelve una lista de objetos Log en base a los registros de la tabla log
+ </summary>
+	<param name="periodo">El periodo sobre el cual filtrar los resultados a devolver</param>Public Function SelectLogs(Optional ByVal periodo As String = "true") As List(Of Log)
+
+</member><member name="M:Centinela.ClassLib.AccesoDatos.AgregarLogHorario(Centinela.ClassLib.LogHorario)">
+	<summary>
+ Agrega un nuevo registro a la tabla log de los horarios
+ </summary>
+	<param name="lg">El objeto LogHorario del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelectLogsHorario(System.String)">
+	<summary>
+ Devuelve una lista de objetos LogHorario basados en los registros de la tabla log de horarios
+ </summary>
+	<param name="condicion">La condicion para filtrar los registros a seleccionar</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelectMapas">
+	<summary>
+ Devuelve una lista de objetos Mapa basados en los registros de la tabla mapas
+ </summary>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SelectMapas(System.Int32)">
+	<summary>
+ Devuelve una lista de objetos Mapa relacionados con un sensor especifico
+ </summary>
+	<param name="idSen">El id del sensor relacionado</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.AgregarMapa(Centinela.ClassLib.Mapa)">
+	<summary>
+ Agrega un nuevo registro a la tabla mapas
+ </summary>
+	<param name="mpa">El objeto Mapa del cual tomar los datos</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.EliminarMapa(Centinela.ClassLib.Mapa)">
+	<summary>
+ Elimina un registro existente en la tabla mapas
+ </summary>
+	<param name="mpa">El ojbeto Mapa a eliminar</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.GetImgMapa(Centinela.ClassLib.Mapa)">
+	<summary>
+ Devuelve un arreglo de bytes que representan la imagen asociada con un mapa
+ </summary>
+	<param name="mpa">El mapa asociado con la imagen</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.SetImgMapa(Centinela.ClassLib.Mapa,System.Byte[])">
+	<summary>
+ Establece un arreglo de bytes que representan la imagen asociada con un mapa
+ </summary>
+	<param name="mpa">El mapa a asociar con la imagen</param>
+	<param name="img">El arreglo de bytes a asociar con el mapa</param>
+</member><member name="M:Centinela.ClassLib.AccesoDatos.GetMaxId(System.String)">
+	<summary>
+ Devuelve el maximo valor de Id de los registros de una tabla especifica
+ </summary>
+	<param name="nomTabla">El nombre de la tabla en la cual buscar</param>
+</member><member name="T:Centinela.ClassLib.AccesoDatos">
+	<summary>
+ Clase que proporciona el acceso a la base de datos para consultar, agregar, editar, borrar registros de las tablas
+ </summary>
+</member><member name="F:Centinela.ClassLib.LogHorario._id">
+	<summary>
+ El identificador unico
+ </summary>
+</member><member name="F:Centinela.ClassLib.LogHorario._fkidusuario">
+	<summary>
+ El id del usuario logueado
+ </summary>
+</member><member name="F:Centinela.ClassLib.LogHorario._fechaHora">
+	<summary>
+ La fecha y la hora de ocurrencia del suceso
+ </summary>
+</member><member name="F:Centinela.ClassLib.LogHorario._suceso">
+	<summary>
+ La descripcion del suceso
+ </summary>
+</member><member name="P:Centinela.ClassLib.LogHorario.Id">
+	<summary>
+ Devuelve o establece el identificador del log
+ </summary>
+</member><member name="P:Centinela.ClassLib.LogHorario.IdUsuario">
+	<summary>
+ Devuelve o establece el id del usuario
+ </summary>
+</member><member name="P:Centinela.ClassLib.LogHorario.FechaHora">
+	<summary>
+ Devuelve o establece la fecha y la hora de ocurrencia del suceso
+ </summary>
+</member><member name="P:Centinela.ClassLib.LogHorario.Suceso">
+	<summary>
+ Devuelve o establece la descripcion del suceso
+ </summary>
+</member><member name="M:Centinela.ClassLib.LogHorario.#ctor(System.Int32,System.Int32,System.DateTime,System.String)">
+	<summary>
+ Crea una nueva instancia de la clase LogHorario
+ </summary>
+	<param name="id">El id del log</param>
+	<param name="idUsuario">El id del usuario</param>
+	<param name="fechaHr">La fecha de ocurrencia del suceso</param>
+	<param name="succ">La descripcion del suceso</param>
+</member><member name="T:Centinela.ClassLib.LogHorario">
+	<summary>
+ Representa el log del horario de un usuario
+ </summary>
+</member><member name="F:Centinela.ClassLib.Mapa._id">
+	<summary>
+ Identificador unico del mapa
+ </summary>
+</member><member name="F:Centinela.ClassLib.Mapa._nombre">
+	<summary>
+ Nombre representativo del mapa
+ </summary>
+</member><member name="P:Centinela.ClassLib.Mapa.Id">
+	<summary>
+ Devuelve o establece el identificador del mapa
+ </summary>
+</member><member name="P:Centinela.ClassLib.Mapa.Nombre">
+	<summary>
+ Devuelve o establece el nombre del mapa
+ </summary>
+</member><member name="M:Centinela.ClassLib.Mapa.#ctor(System.Int32,System.String)">
+	<summary>
+ Crea una nueva instancia de la clase Mapa
+ </summary>
+	<param name="newId">El id del mapa</param>
+	<param name="newNombre">El nombre del mapa</param>
+</member><member name="T:Centinela.ClassLib.Mapa">
+	<summary>
+ Representa un mapa en el cual visualizar sensores
+ </summary>
+</member><member name="F:Centinela.ClassLib.Sensor._id">
+	<summary>
+ Identificador unico del sensor
+ </summary>
+</member><member name="F:Centinela.ClassLib.Sensor._nombre">
+	<summary>
+ Nombre representativo del sensor
+ </summary>
+</member><member name="F:Centinela.ClassLib.Sensor._estadoActual">
+	<summary>
+ Id del estado actual del sensor
+ </summary>
+</member><member name="F:Centinela.ClassLib.Sensor._tipo">
+	<summary>
+ Id del tipo de sensor
+ </summary>
+</member><member name="F:Centinela.ClassLib.Sensor._pin">
+	<summary>
+ Numero de pin asociado con el sensor
+ </summary>
+</member><member name="E:Centinela.ClassLib.Sensor.onEncender">
+	<summary>
+ Evento disparado cuando se enciende un sensor
+ </summary>
+</member><member name="E:Centinela.ClassLib.Sensor.onApagar">
+	<summary>
+ Evento disparado cuando se apaga un sensor
+ </summary>
+</member><member name="E:Centinela.ClassLib.Sensor.onActivar">
+	<summary>
+ Evento disparado cuando se activa un sensor
+ </summary>
+</member><member name="E:Centinela.ClassLib.Sensor.onDesactivar">
+	<summary>
+ Evento disparado cuando se desactiva un sensor
+ </summary>
+</member><member name="P:Centinela.ClassLib.Sensor.Id">
+	<summary>
+ Devuelve o establece el id del sensor
+ </summary>
+</member><member name="P:Centinela.ClassLib.Sensor.Nombre">
+	<summary>
+ Devuelve o establece el nombre del sensor
+ </summary>
+</member><member name="P:Centinela.ClassLib.Sensor.EstadoActual">
+	<summary>
+ Devuelve o establece el id del estado actual del sensor
+ </summary>
+</member><member name="P:Centinela.ClassLib.Sensor.Tipo">
+	<summary>
+ Devuelve o establece el id del tipo de sensor
+ </summary>
+</member><member name="P:Centinela.ClassLib.Sensor.Pin">
+	<summary>
+ Devuelve o establece el numero del pin asociado con el sensor
+ </summary>
+</member><member name="M:Centinela.ClassLib.Sensor.#ctor(System.Int32,System.String,System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Crea una nueva instancia de la clase sensor
+ </summary>
+	<param name="id">El id del sensor</param>
+	<param name="nom">El nombre del sensor</param>
+	<param name="tipo">El id del tipo de sensor</param>
+	<param name="estado">El id del estado de sensor</param>
+	<param name="pn">El numero del pin asociado con el sensor</param>
+</member><member name="M:Centinela.ClassLib.Sensor.Encender(System.Boolean)">
+	<summary>
+ Cambia el estado del sensor a Encendido
+ </summary>
+	<param name="autoActivar">Si es verdadero, activa automaticamente el sensor</param>
+</member><member name="M:Centinela.ClassLib.Sensor.Apagar">
+	<summary>
+ Cambia el estado del sensor a Apagado
+ </summary>
+</member><member name="M:Centinela.ClassLib.Sensor.Activar">
+	<summary>
+ Cambia el estado del sensor a Activo
+ </summary>
+</member><member name="M:Centinela.ClassLib.Sensor.Desactivar">
+	<summary>
+ Cambia el estado del sensor a Inactivo
+ </summary>
+</member><member name="T:Centinela.ClassLib.Sensor">
+	<summary>
+ Representa un Sensor
+ </summary>
+</member><member name="F:Centinela.ClassLib.Usuario._id">
+	<summary>
+ Identificador unico del usuario
+ </summary>
+</member><member name="F:Centinela.ClassLib.Usuario._nombreCompleto">
+	<summary>
+ Nombre completo del usuario
+ </summary>
+</member><member name="F:Centinela.ClassLib.Usuario._clave">
+	<summary>
+ Clave de acceso del usuario
+ </summary>
+</member><member name="F:Centinela.ClassLib.Usuario._nombreUsuario">
+	<summary>
+ Nickname del usuario
+ </summary>
+</member><member name="F:Centinela.ClassLib.Usuario._visible">
+	<summary>
+ Si el usuario es visible o no
+ </summary>
+</member><member name="P:Centinela.ClassLib.Usuario.Id">
+	<summary>
+ Devuelve o establece el identificador del usuario
+ </summary>
+</member><member name="P:Centinela.ClassLib.Usuario.NombreCompleto">
+	<summary>
+ Devuelve o establece el nombre completo del usuario
+ </summary>
+</member><member name="P:Centinela.ClassLib.Usuario.Clave">
+	<summary>
+ Devuelve o establece la clave de acceso del usuario
+ </summary>
+</member><member name="P:Centinela.ClassLib.Usuario.NombreUsuario">
+	<summary>
+ Devuelve o establece el Nickname del usuario
+ </summary>
+</member><member name="P:Centinela.ClassLib.Usuario.Visible">
+	<summary>
+ Devuelve o establece si el usuario es visible o no
+ </summary>
+</member><member name="M:Centinela.ClassLib.Usuario.#ctor(System.String,System.String,System.String,System.String,System.Boolean)">
+	<summary>
+ Crea una nueva instancia de la clase Usuario
+ </summary>
+	<param name="id">El id del usuario</param>
+	<param name="nomComp">El nombre completo del usuario</param>
+	<param name="clv">La clave de acceso del usuario</param>
+	<param name="nomUsr">El Nickname del usuario</param>
+	<param name="vis">Si el usuario es visible</param>
+</member><member name="T:Centinela.ClassLib.Usuario">
+	<summary>
+ Representa un Usuario de la aplicacion
+ </summary>
+</member><member name="M:Centinela.ClassLib.Administrador.#ctor(System.String,System.String,System.String,System.String,System.Boolean)">
+	<summary>
+ Crea una nueva instancia de la clase Administrador
+ </summary>
+	<param name="id">El id del administrador</param>
+	<param name="nomComp">El nombre completo del administrador</param>
+	<param name="clv">La clave de acceso del administrador</param>
+	<param name="nomUsr">El nombre de usuario del administrador</param>
+	<param name="vis">Indica si el administrador se encuentra visible o no</param>
+</member><member name="T:Centinela.ClassLib.Administrador">
+	<summary>
+ Representa un objeto usuario con privilegios de administrador
+ </summary>
+</member>
+</members>
+</doc>

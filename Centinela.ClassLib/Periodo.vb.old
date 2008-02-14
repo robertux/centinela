@@ -1,0 +1,10 @@
+Namespace ClassLib
+    Public Enum Periodo
+        Diario
+        Semanal
+        Mensual
+        Bimestral
+        Trimestral
+    End Enum
+End Namespace
+
