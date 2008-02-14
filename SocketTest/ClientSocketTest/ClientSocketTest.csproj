@@ -34,5 +34,8 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="SocketClient.cs" />
+    <EmbeddedResource Include="SocketClient.resx">
+      <DependentUpon>SocketClient.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
