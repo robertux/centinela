@@ -3,3 +3,5 @@ bin\Debug\ClientSocketTest.pdb
 obj\Debug\ResolveAssemblyReference.cache
 obj\Debug\ClientSocketTest.exe
 obj\Debug\ClientSocketTest.pdb
+obj\Debug\DefaultNamespace.SocketClient.resources
+obj\Debug\ClientSocketTest.csproj.GenerateResource.Cache

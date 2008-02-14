@@ -147,13 +147,14 @@ namespace DefaultNamespace
 			// buttonConnect
 			// 
 			this.buttonConnect.BackColor = System.Drawing.SystemColors.HotTrack;
-			this.buttonConnect.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
+			this.buttonConnect.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonConnect.ForeColor = System.Drawing.Color.Yellow;
 			this.buttonConnect.Location = new System.Drawing.Point(344, 8);
 			this.buttonConnect.Name = "buttonConnect";
 			this.buttonConnect.Size = new System.Drawing.Size(72, 48);
 			this.buttonConnect.TabIndex = 7;
 			this.buttonConnect.Text = "Connect To Server";
+			this.buttonConnect.UseVisualStyleBackColor = false;
 			this.buttonConnect.Click += new System.EventHandler(this.ButtonConnectClick);
 			// 
 			// label5
@@ -170,18 +171,18 @@ namespace DefaultNamespace
 			this.textBoxIP.Name = "textBoxIP";
 			this.textBoxIP.Size = new System.Drawing.Size(152, 20);
 			this.textBoxIP.TabIndex = 3;
-			this.textBoxIP.Text = "";
 			// 
 			// buttonDisconnect
 			// 
 			this.buttonDisconnect.BackColor = System.Drawing.Color.Red;
-			this.buttonDisconnect.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
+			this.buttonDisconnect.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonDisconnect.ForeColor = System.Drawing.Color.Yellow;
 			this.buttonDisconnect.Location = new System.Drawing.Point(432, 8);
 			this.buttonDisconnect.Name = "buttonDisconnect";
 			this.buttonDisconnect.Size = new System.Drawing.Size(72, 48);
 			this.buttonDisconnect.TabIndex = 15;
 			this.buttonDisconnect.Text = "Disconnet From Server";
+			this.buttonDisconnect.UseVisualStyleBackColor = false;
 			this.buttonDisconnect.Click += new System.EventHandler(this.ButtonDisconnectClick);
 			// 
 			// label1
@@ -220,7 +221,7 @@ namespace DefaultNamespace
 			// SocketClient
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(512, 244);
+			this.ClientSize = new System.Drawing.Size(512, 249);
 			this.Controls.Add(this.btnClear);
 			this.Controls.Add(this.buttonDisconnect);
 			this.Controls.Add(this.buttonSendMessage);
@@ -239,7 +240,7 @@ namespace DefaultNamespace
 			this.Name = "SocketClient";
 			this.Text = "Socket Client";
 			this.ResumeLayout(false);
-
+			this.PerformLayout();
 		}
 		#endregion
 		void ButtonCloseClick(object sender, System.EventArgs e)
