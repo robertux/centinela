@@ -2,6 +2,8 @@ Imports System.Windows.Forms
 Imports System.Data
 Imports System.Data.SqlClient
 Imports Centinela.ClassLib
+Imports System.Runtime.Serialization.Formatters.Binary
+Imports System.IO
 
 Namespace ClassLib
 
@@ -11,6 +13,7 @@ Namespace ClassLib
     ''' de acceso a dato por cadenas de mensajes o flujos de bits serializados, para
     ''' enviar los datos de una ubicacion a otra remota.
     ''' </summary>
+
     Public Class AccesoRemoto
 
 #Region "Campos"
@@ -50,6 +53,32 @@ Namespace ClassLib
         Public Sub Desconectar()
             Me.sClient.Close()
         End Sub
+
+        <STAThread()> Public Function ObjetoABinario(ByVal objeto As Object) As Byte()
+            Try
+                Dim mem As MemoryStream = New MemoryStream()
+                Dim formato As BinaryFormatter = New BinaryFormatter()
+                formato.Serialize(mem, objeto)
+                Dim bytes As Byte() = mem.GetBuffer()
+                mem.Close()
+                Return bytes
+            Catch ex As Exception
+                'ERROR DE CARTELERA
+            End Try
+        End Function
+
+        <STAThread()> Public Function BinarioAObjeto(ByVal bytes As Byte()) As Object
+            Try
+                Dim mem As MemoryStream = New MemoryStream()
+                Dim objeto As Object = New Object()
+                Dim formato As BinaryFormatter = New BinaryFormatter()
+                formato.Serialize(mem, objeto)
+                objeto = formato.Deserialize(mem)
+                Return objeto
+            Catch ex As Exception
+                'ERROR DE CARTELERA
+            End Try
+        End Function
 
 #Region "Usuarios"
 
