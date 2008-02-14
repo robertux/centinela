@@ -1,6 +1,6 @@
 Namespace ClassLib
 
-    Public Class VigilanciaProgramada
+    <Serializable()> Public Class VigilanciaProgramada
         Inherits ActividadProgramada
 
 #Region "Campos"

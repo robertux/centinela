@@ -3,10 +3,10 @@ Namespace ClassLib
 	''' <summary>
     ''' Representa un objeto usuario con privilegios de administrador
     ''' </summary>
-    Public Class Administrador
+    <Serializable()> Public Class Administrador
         Inherits Usuario
 
-		''' <summary>
+        ''' <summary>
         ''' Crea una nueva instancia de la clase Administrador
         ''' </summary>
         ''' <param name="id">El id del administrador</param>

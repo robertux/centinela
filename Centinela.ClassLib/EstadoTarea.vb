@@ -1,5 +1,5 @@
 Namespace ClassLib
-    Public Enum EstadoTarea
+    <Serializable()> Public Enum EstadoTarea
         Pendiente
         Realizando
         Realizada

@@ -2,37 +2,37 @@ Namespace ClassLib
 	''' <summary>
     ''' Representa un Usuario de la aplicacion
     ''' </summary>
-    Public Class Usuario
+    <Serializable()> Public Class Usuario
 
 #Region "Campos"
-		''' <summary>
-	    ''' Identificador unico del usuario
-	    ''' </summary>
+        ''' <summary>
+        ''' Identificador unico del usuario
+        ''' </summary>
         Private _id As String
-		''' <summary>
-	    ''' Nombre completo del usuario
-	    ''' </summary>
+        ''' <summary>
+        ''' Nombre completo del usuario
+        ''' </summary>
         Private _nombreCompleto As String
-		''' <summary>
-	    ''' Clave de acceso del usuario
-	    ''' </summary>
+        ''' <summary>
+        ''' Clave de acceso del usuario
+        ''' </summary>
         Private _clave As String
-		''' <summary>
-	    ''' Nickname del usuario
-	    ''' </summary>
+        ''' <summary>
+        ''' Nickname del usuario
+        ''' </summary>
         Private _nombreUsuario As String
-		''' <summary>
-	    ''' Si el usuario es visible o no
-	    ''' </summary>
+        ''' <summary>
+        ''' Si el usuario es visible o no
+        ''' </summary>
         Private _visible As Boolean
 
 #End Region
 
 #Region "Propiedades"
 
-		''' <summary>
-	    ''' Devuelve o establece el identificador del usuario
-	    ''' </summary>
+        ''' <summary>
+        ''' Devuelve o establece el identificador del usuario
+        ''' </summary>
         Public Property Id() As String
             Get
                 Return Me._id
@@ -42,9 +42,9 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
-	    ''' Devuelve o establece el nombre completo del usuario
-	    ''' </summary>
+        ''' <summary>
+        ''' Devuelve o establece el nombre completo del usuario
+        ''' </summary>
         Public Property NombreCompleto() As String
             Get
                 Return Me._nombreCompleto
@@ -54,9 +54,9 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
-	    ''' Devuelve o establece la clave de acceso del usuario
-	    ''' </summary>
+        ''' <summary>
+        ''' Devuelve o establece la clave de acceso del usuario
+        ''' </summary>
         Public Property Clave() As String
             Get
                 Return Me._clave
@@ -66,9 +66,9 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
-	    ''' Devuelve o establece el Nickname del usuario
-	    ''' </summary>
+        ''' <summary>
+        ''' Devuelve o establece el Nickname del usuario
+        ''' </summary>
         Public Property NombreUsuario() As String
             Get
                 Return Me._nombreUsuario
@@ -78,9 +78,9 @@ Namespace ClassLib
             End Set
         End Property
 
-		''' <summary>
-	    ''' Devuelve o establece si el usuario es visible o no
-	    ''' </summary>
+        ''' <summary>
+        ''' Devuelve o establece si el usuario es visible o no
+        ''' </summary>
         Public Property Visible() As Boolean
             Get
                 Return Me._visible
@@ -94,9 +94,9 @@ Namespace ClassLib
 
 #Region "Metodos"
 
-		''' <summary>
-	    ''' Crea una nueva instancia de la clase Usuario
-	    ''' </summary>
+        ''' <summary>
+        ''' Crea una nueva instancia de la clase Usuario
+        ''' </summary>
         ''' <param name="id">El id del usuario</param>
         ''' <param name="nomComp">El nombre completo del usuario</param>
         ''' <param name="clv">La clave de acceso del usuario</param>
