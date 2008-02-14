@@ -1,0 +1,16 @@
+bin\Debug\inpout32.dll
+bin\Debug\Centinela.Master.exe.config
+bin\Debug\Centinela.Master.exe
+bin\Debug\Centinela.Master.pdb
+bin\Debug\Centinela.Master.xml
+bin\Debug\Centinela.ClassLib.dll
+bin\Debug\XmlClassLib.dll
+bin\Debug\Centinela.ClassLib.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Centinela.Master.frmSesion.resources
+obj\Debug\Centinela.Master.Resources.resources
+obj\Debug\Centinela.Master.vbproj.GenerateResource.Cache
+obj\Debug\Centinela.Master.exe
+obj\Debug\Centinela.Master.xml
+obj\Debug\Centinela.Master.pdb
+obj\Debug\Centinela.Master.frmMaster.resources
