@@ -8,7 +8,7 @@ Public Class frmMaster
 
     Private sensores As List(Of Sensor)
     Private cargando As Boolean
-    private sServ as SocketServer
+    friend withevents sServ as SocketServer
 
     Public Notificador As NotificarBandeja.ShellNot = New NotificarBandeja.ShellNot()
 
@@ -31,7 +31,7 @@ Public Class frmMaster
 
     Public Sub New()
         Me.InitializeComponent()
-    End Sub
+    End Sub       
 
     Public Sub Restaurar(ByVal mb As System.Windows.Forms.MouseButtons)
         If mb = Windows.Forms.MouseButtons.Left Then
@@ -81,5 +81,10 @@ Public Class frmMaster
     Private Sub btnDetener_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDetener.Click
         btnComenzar.Enabled = True
         Me.srvPuertos.Stop()
+    End Sub     
+    
+     Private Sub DatosRecibidos(ByVal nCliente As Integer, ByVal datos As String) Handles sServ.DataReceived
+    	Msgbox(nCliente.ToString + ": " + datos)
     End Sub
+    
 End Class
