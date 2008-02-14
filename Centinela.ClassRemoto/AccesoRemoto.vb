@@ -117,6 +117,7 @@ Namespace ClassLib
         ''' <param name="nom">nombre del usuario dentro del registro</param>
         ''' <param name="clave">clave del usuario dentro del registro</param>
         Public Function SelecUsuario(ByVal nom As String, ByVal clave As String) As Usuario
+
         End Function
 
         ''' <summary>

@@ -6,11 +6,7 @@ Centinela.ClassRemoto
 </name>
 </assembly>
 <members>
-<member name="T:Centinela.SocketClient">
-	<summary>
- Description of SocketClient.	
- </summary>
-</member><member name="M:Centinela.ClassLib.AccesoRemoto.#ctor">
+<member name="M:Centinela.ClassLib.AccesoRemoto.#ctor">
 	<summary>
  Crea una nueva instancia de la clase Acceso a Datos
  </summary>
@@ -243,6 +239,10 @@ Centinela.ClassRemoto
 	<summary>
   Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
 </summary>
+</member><member name="T:Centinela.SocketClient">
+	<summary>
+ Description of SocketClient.	
+ </summary>
 </member>
 </members>
 </doc>
