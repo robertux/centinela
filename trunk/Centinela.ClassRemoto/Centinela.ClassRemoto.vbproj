@@ -61,6 +61,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Peticion.vb" />
     <Compile Include="SocketClient.vb">
     </Compile>
   </ItemGroup>

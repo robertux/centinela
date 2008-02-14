@@ -240,14 +240,18 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="sen">sensor a modificar, ya incluidos sus valores modificados</param>
         Public Sub ModificarSensor(ByVal sen As Sensor)
-            Me._cmd.CommandText = "update Sensor set nombre=@nombre, fk_tipo = @tipo, fk_estado = @estado, pin=@pin where pk_id = @id"
-            Me._cmd.Parameters.Clear()
-            Me._cmd.Parameters.Add(New SqlParameter("@nombre", sen.Nombre))
-            Me._cmd.Parameters.Add(New SqlParameter("@tipo", sen.Tipo))
-            Me._cmd.Parameters.Add(New SqlParameter("@estado", sen.EstadoActual))
-            Me._cmd.Parameters.Add(New SqlParameter("@id", sen.Id))
-            Me._cmd.Parameters.Add(New SqlParameter("@pin", sen.Pin))
-            Me._cmd.ExecuteNonQuery()
+            If Me.Estado Then
+                Me._cmd.CommandText = "update Sensor set nombre=@nombre, fk_tipo = @tipo, fk_estado = @estado, pin=@pin where pk_id = @id"
+                Me._cmd.Parameters.Clear()
+                Me._cmd.Parameters.Add(New SqlParameter("@nombre", sen.Nombre))
+                Me._cmd.Parameters.Add(New SqlParameter("@tipo", sen.Tipo))
+                Me._cmd.Parameters.Add(New SqlParameter("@estado", sen.EstadoActual))
+                Me._cmd.Parameters.Add(New SqlParameter("@id", sen.Id))
+                Me._cmd.Parameters.Add(New SqlParameter("@pin", sen.Pin))
+                Me._cmd.ExecuteNonQuery()
+            Else
+                Me.Conectar()
+            End If
         End Sub
 
 		''' <summary>
