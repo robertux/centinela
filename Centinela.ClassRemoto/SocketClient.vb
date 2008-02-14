@@ -22,18 +22,19 @@ Imports System.Net.Sockets
         Private m_result As IAsyncResult
         Public m_pfnCallBack As AsyncCallback
         Public m_clientSocket As Socket
-        Public Event ReceiveData(ByVal data As String)
-        Public Event ReceiveImage(ByVal img As System.Drawing.Image)
+    'Public Event ReceiveData(ByVal data As String)
+    'Public Event ReceiveImage(ByVal img As System.Drawing.Image)
+    Public Event ReceiveData(ByVal data As Byte())
 
         Private iP As String
     Private port As String
-    Public recImgs As Boolean
+    'Public recImgs As Boolean
 
         Public Sub New()
             Me.iP = "192.168.1.2"
             'textBoxIP.Text = GetIP();
         Me.port = "8000"
-        Me.recImgs = False
+        'Me.recImgs = False
         End Sub
 
     Public Sub Close()
@@ -67,35 +68,36 @@ Imports System.Net.Sockets
             End Try
         End Sub
 
-        Public Sub SendMessage(ByVal msg As String)
-            Try
-                ' New code to send strings
-                Dim networkStream As New NetworkStream(m_clientSocket)
-                Dim streamWriter As New System.IO.StreamWriter(networkStream)
-                streamWriter.WriteLine(msg)
+    Public Sub SendData(ByVal data As Byte())
+        Try
+            ' New code to send strings
+            m_clientSocket.Send(data)
+            'Dim networkStream As New NetworkStream(m_clientSocket)
+            'Dim streamWriter As New System.IO.StreamWriter(networkStream)
+            'streamWriter.WriteLine(msg)
 
-                ' Use the following code to send bytes
-                '				byte[] byData = System.Text.Encoding.ASCII.GetBytes(objData.ToString ());
-                '				if(m_clientSocket != null){
-                '					m_clientSocket.Send (byData);
-                '				}
-                '				
+            ' Use the following code to send bytes
+            '				byte[] byData = System.Text.Encoding.ASCII.GetBytes(objData.ToString ());
+            '				if(m_clientSocket != null){
+            '					m_clientSocket.Send (byData);
+            '				}
+            '				
 
-                streamWriter.Flush()
-            Catch se As SocketException
-                MessageBox.Show(se.Message)
-            End Try
-        End Sub
+            'streamWriter.Flush()
+        Catch se As SocketException
+            MessageBox.Show(se.Message)
+        End Try
+    End Sub
 
         Public Sub WaitForData()
             Try
                 If m_pfnCallBack Is Nothing Then
-                    m_pfnCallBack = New AsyncCallback(AddressOf OnDataReceived)
+                m_pfnCallBack = New AsyncCallback(AddressOf OnDataReceived)
                 End If
                 Dim theSocPkt As New SocketPacket()
                 theSocPkt.thisSocket = m_clientSocket
-                ' Start listening to the data asynchronously
-                m_result = m_clientSocket.BeginReceive(theSocPkt.dataBuffer, 0, theSocPkt.dataBuffer.Length, SocketFlags.None, m_pfnCallBack, theSocPkt)
+            ' Start listening to the data asynchronously
+            m_result = m_clientSocket.BeginReceive(theSocPkt.dataBuffer, 0, theSocPkt.dataBuffer.Length, SocketFlags.None, m_pfnCallBack, theSocPkt)
             Catch se As SocketException
                 MessageBox.Show(se.Message)
             End Try
@@ -108,48 +110,48 @@ Imports System.Net.Sockets
         End Class
 
     Public Sub OnDataReceived(ByVal asyn As IAsyncResult)
-        If (Me.recImgs) Then
-            Try
-                Dim theSockId As SocketPacket = DirectCast(asyn.AsyncState, SocketPacket)
-                Dim ms As New System.IO.MemoryStream(theSockId.dataBuffer)
-                Dim imagen As System.Drawing.Image = System.Drawing.Image.FromStream(ms)
-                RaiseEvent ReceiveImage(imagen)
-            Catch ex As Exception
+        Try
+            Dim theSockId As SocketPacket = DirectCast(asyn.AsyncState, SocketPacket)
+            RaiseEvent ReceiveData(theSockId.dataBuffer)
+            'Dim ms As New System.IO.MemoryStream(theSockId.dataBuffer)
+            'Dim imagen As System.Drawing.Image = System.Drawing.Image.FromStream(ms)
+            'RaiseEvent ReceiveImage(imagen)
+            WaitForData()
+        Catch ex As Exception
 
-            End Try
-        Else
-            Try
-                Dim theSockId As SocketPacket = DirectCast(asyn.AsyncState, SocketPacket)
-                Dim iRx As Integer = theSockId.thisSocket.EndReceive(asyn)
-                Dim chars As Char() = New Char(iRx) {}
-                Dim d As System.Text.Decoder = System.Text.Encoding.UTF8.GetDecoder()
-                Dim charLen As Integer = d.GetChars(theSockId.dataBuffer, 0, iRx, chars, 0)
-                Dim szData As New String(chars)
-                '                'richTextRxMessage.Text = richTextRxMessage.Text + szData.ToString()
-                RaiseEvent ReceiveData(szData)
-                WaitForData()
-            Catch generatedExceptionName As ObjectDisposedException
-                System.Diagnostics.Debugger.Log(0, "1", "" & Chr(10) & "OnDataReceived: Socket has been closed" & Chr(10) & "")
-            Catch se As SocketException
-                MessageBox.Show(se.Message)
-            Catch ex As Exception
-                'pass
-            End Try
-        End If
+        End Try
+        'Try
+        'Dim theSockId As SocketPacket = DirectCast(asyn.AsyncState, SocketPacket)
+        'Dim iRx As Integer = theSockId.thisSocket.EndReceive(asyn)
+
+        'Dim chars As Char() = New Char(iRx) {}
+        'Dim d As System.Text.Decoder = System.Text.Encoding.UTF8.GetDecoder()
+        'Dim charLen As Integer = d.GetChars(theSockId.dataBuffer, 0, iRx, chars, 0)
+        'Dim szData As New String(chars)
+        '                'richTextRxMessage.Text = richTextRxMessage.Text + szData.ToString()
+        'RaiseEvent ReceiveData(szData)
+        'WaitForData()
+        'Catch generatedExceptionName As ObjectDisposedException
+        'System.Diagnostics.Debugger.Log(0, "1", "" & Chr(10) & "OnDataReceived: Socket has been closed" & Chr(10) & "")
+        'Catch se As SocketException
+        'MessageBox.Show(se.Message)
+        'Catch ex As Exception
+        'pass
+        'End Try
     End Sub
 
-        Private Function GetIP() As String
-            Dim strHostName As String = Dns.GetHostName()
+    Private Function GetIP() As String
+        Dim strHostName As String = Dns.GetHostName()
 
-            ' Find host by name
-            Dim iphostentry As IPHostEntry = Dns.GetHostEntry(strHostName)
+        ' Find host by name
+        Dim iphostentry As IPHostEntry = Dns.GetHostEntry(strHostName)
 
-            ' Grab the first IP addresses
-            Dim IPStr As String = ""
-            For Each ipaddress As IPAddress In iphostentry.AddressList
-                IPStr = ipaddress.ToString()
-                Return IPStr
-            Next
+        ' Grab the first IP addresses
+        Dim IPStr As String = ""
+        For Each ipaddress As IPAddress In iphostentry.AddressList
+            IPStr = ipaddress.ToString()
             Return IPStr
-        End Function
-    End Class
+        Next
+        Return IPStr
+    End Function
+End Class

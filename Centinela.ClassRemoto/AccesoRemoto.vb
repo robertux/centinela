@@ -79,6 +79,7 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="id">Id del registro a seleccionar</param>
         Public Function SelecUsuario(ByVal id As String) As Usuario
+
         End Function
 
         ''' <summary>
@@ -383,11 +384,7 @@ Namespace ClassLib
 
 #Region "SocketClient"
 
-        Public Sub OnRecibirDatos(ByVal datos As String) Handles sClient.ReceiveData
-
-        End Sub
-
-        Public Sub OnRecibirImg(ByVal img As System.Drawing.Image) Handles sClient.ReceiveImage
+        Public Sub OnRecibirDatos(ByVal datos As Byte()) Handles sClient.ReceiveData
 
         End Sub
 

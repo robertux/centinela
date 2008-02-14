@@ -33,7 +33,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="SocketClient.cs" />
+    <Compile Include="SocketClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="SocketClient.resx">
       <DependentUpon>SocketClient.cs</DependentUpon>
     </EmbeddedResource>
