@@ -27,3 +27,4 @@ obj\Debug\Centinela.WinApp.vbproj.GenerateResource.Cache
 obj\Debug\Centinela.WinApp.exe
 obj\Debug\CampusWatchDog.WinApp.xml
 obj\Debug\Centinela.WinApp.pdb
+bin\Debug\Centinela.WinApp.exe.config

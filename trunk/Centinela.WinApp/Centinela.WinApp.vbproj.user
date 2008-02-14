@@ -14,6 +14,6 @@
     <ApplicationRevision>0</ApplicationRevision>
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
-    <ReferencePath>c:\Archivos de programa\Archivos comunes\Business Objects\2.7\Managed\E:\Archivos de programa\Archivos comunes\Business Objects\2.7\Managed\</ReferencePath>
+    <ReferencePath>C:\Program Files\Common Files\Business Objects\2.7\Managed\c:\Archivos de programa\Archivos comunes\Business Objects\2.7\Managed\E:\Archivos de programa\Archivos comunes\Business Objects\2.7\Managed\</ReferencePath>
   </PropertyGroup>
 </Project>

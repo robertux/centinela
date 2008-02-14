@@ -27,7 +27,7 @@ Public Class frmAgregarMapa
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click        
         dlg.Filter = "Imagenes(*.jpg;*.bmp;*.gif;*.png)|*.jpg;*.bmp;*.gif;*.png"
-        If (dlg.ShowDialog() = DialogResult.OK) Then
+        If (dlg.ShowDialog() = Windows.Forms.DialogResult.OK) Then
             Dim stream As System.IO.Stream = dlg.OpenFile()
             Dim bytes(CInt(stream.Length)) As Byte
             stream.Read(bytes, 0, CInt(stream.Length))
