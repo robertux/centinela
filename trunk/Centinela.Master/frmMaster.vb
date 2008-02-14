@@ -96,13 +96,107 @@ Public Class frmMaster
                     peticion.objeto = Me.datos.SelecUsuario(s(1), s(2))
                     Me.datos.Desconectar()
                     Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case "delusr"
+                    Dim u As New Usuario(s(2), "", "", "", True)
+                    Me.datos.Conectar()
+                    Me.datos.EliminarUsuario(u)
+                    Me.datos.Desconectar()
+                    'Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case "selectusuarios"
+                    Me.datos.Conectar()
+                    peticion.objeto = Me.datos.SelectUsuarios()
+                    Me.datos.Desconectar()
+                    Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case "editusr"
+                    Dim b As Boolean
+                    If s(6) = "1" Then
+                        b = True
+                    ElseIf s(6) = "0" Then
+                        b = False
+                    End If
+                    Dim u As New Usuario(s(2), s(3), s(5), s(4), b) '"editusr;" + usr.Id + ";" + usr.NombreCompleto + ";" + usr.NombreUsuario + ";" + usr.Clave + ";" + usr.Visible
+                    Me.datos.Conectar()
+                    Me.datos.ModificarUsuario(u)
+                    Me.datos.Desconectar()
+                    'Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case "addusr"
+                    Dim b As Boolean
+                    If s(6) = "1" Then
+                        b = True
+                    ElseIf s(6) = "0" Then
+                        b = False
+                    End If
+                    Dim u As New Usuario(s(2), s(3), s(5), s(4), b) '"addusr;" + usr.Id + ";" + usr.NombreCompleto + ";" + usr.NombreUsuario + ";" + usr.Clave + ";" + usr.Visible
+                    Me.datos.Conectar()
+                    Me.datos.AgregarUsuario(u)
+                    Me.datos.Desconectar()
+                Case "loginbyid"
+                    Me.datos.Conectar()
+                    peticion.objeto = Me.datos.SelecUsuario(s(2))
+                    Me.datos.Desconectar()
+                    Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case "selectadminbyid"
+                    Me.datos.Conectar()
+                    peticion.objeto = Me.datos.SelecAdministrador(s(2))
+                    Me.datos.Desconectar()
+                    Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case "selectadmin"
+                    Me.datos.Conectar() '"selectadmin;" + nom + ";" + clave
+                    peticion.objeto = Me.datos.SelecAdministrador(s(2), s(3))
+                    Me.datos.Desconectar()
+                    Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case "addsen"
+                    Dim sen As New Sensor(s(2), s(3), s(4), s(6), s(5)) '"addsen;" + sen.Id.ToString() + ";" + sen.Nombre + ";" + sen.Pin.ToString + ";" + sen.Tipo.ToString() + ";" + sen.EstadoActual.ToString()
+                    Me.datos.Conectar()
+                    Me.datos.AgregarSensor(sen)
+                    Me.datos.Desconectar()
+                Case "editsen"
+                    '"editsen;" + sen.Id.ToString() + ";" + sen.Nombre + ";" + sen.Pin.ToString + ";" + sen.Tipo.ToString() + ";" + sen.EstadoActual.ToString()
+                    Dim sen As New Sensor(s(2), s(3), s(4), s(6), s(5))
+                    Me.datos.Conectar()
+                    Me.datos.ModificarSensor(sen)
+                    Me.datos.Desconectar()
+                Case "delsen" '"delsen;" + sen.Id.ToString()
+                    Dim sen As New Sensor(s(2), "", "", "", "")
+                    Me.datos.Conectar()
+                    Me.datos.EliminarSensor(sen)
+                    Me.datos.Desconectar()
+                Case "selectsen" '"selectsen;" + id
+                    Me.datos.Conectar()
+                    peticion.objeto = Me.datos.SelectSensor(s(2))
+                    Me.datos.Desconectar()
+                    Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case "selectsensores"
+                    Me.datos.Conectar()
+                    peticion.objeto = Me.datos.SelectSensores()
+                    Me.datos.Desconectar()
+                    Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case "selectsensoresbymapa" '"selectsensoresbymapa;" + idMapa.ToString()
+                    Me.datos.Conectar()
+                    peticion.objeto = Me.datos.SelectMapas(s(2))
+                    Me.datos.Desconectar()
+                    Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case "getpossen" '"getpossen;" + idSen.ToString() + ";" + idMapa.ToString()
+                    Me.datos.Conectar()
+                    peticion.objeto = Me.datos.GetPosSensor(s(2), s(3))
+                    Me.datos.Desconectar()
+                    Me.sServ.SendDataToClient(AccesoRemoto.ObjetoABinario(peticion), nCliente)
+                Case "setpossen"
+                    '"setpossen;" + idSen.ToString() + ";" + idMapa.ToString() + ";" + nuevaPos.X.ToString() + ";" + nuevaPos.Y.ToString()
+                    Me.datos.Conectar()
+                    Dim pos As New System.Drawing.Point(s(4), s(5))
+                    Me.datos.SetPosSensor(s(2), s(3), pos)
+                    Me.datos.Desconectar()
+                Case "addsentomapa" '"addsentomapa;" + nuevoId.ToString() + ";" + idSen.ToString() + ";" + idMapa.ToString()
+                    Me.datos.Conectar()
+                    Me.datos.AgregarSensorMapa(s(2), s(3), s(4))
+                    Me.datos.Desconectar()
                 Case ""
-                    'otracosa
                 Case Else
-                    Debug.WriteLine("")
+                    Debug.WriteLine("ups1")
             End Select
         Catch ex As Exception
-            'ups
+            'ups2
         End Try
     End Sub
     
