@@ -31,7 +31,7 @@ Imports System.Net.Sockets
     'Public recImgs As Boolean
 
         Public Sub New()
-        Me.iP = "127.0.0.1"
+        Me.iP = "192.168.1.2"
             'textBoxIP.Text = GetIP();
         Me.port = "8000"
         'Me.recImgs = False
@@ -59,7 +59,7 @@ Imports System.Net.Sockets
                 If m_clientSocket.Connected Then
 
                     'Wait for data asynchronously 
-                    WaitForData()
+                'WaitForData()
                 End If
             Catch se As SocketException
                 Dim str As String
@@ -98,7 +98,7 @@ Imports System.Net.Sockets
                 received(i) = 0
             Next
 
-            m_clientSocket.Receive(received)
+            m_clientSocket.Receive(received, SocketFlags.Peek)
             Return received
         Catch se As SocketException
             MessageBox.Show(se.Message)

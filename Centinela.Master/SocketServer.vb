@@ -133,6 +133,7 @@ Imports Centinela.ClassLib
 
             RaiseEvent DataReceived(socketData.m_clientNumber, socketData.dataBuffer)
             'ENVIAMOS PETICION DE REGRESO A CASA :)
+            Exit Sub
             Dim Respuesta() As Byte = AccesoRemoto.ObjetoABinario(frmMaster.peticion)
 
             Dim workerSocket As Socket = DirectCast(socketData.m_currentSocket, Socket)
@@ -186,19 +187,18 @@ Imports Centinela.ClassLib
 			Next
 		End Sub
 
-    Public Sub SendMsgToClient(ByVal msg As String, ByVal clientNumber As Integer)
-        ' Convert the reply to byte array
-        Dim byData As Byte() = System.Text.Encoding.ASCII.GetBytes(msg)
+    'Public Sub SendMsgToClient(ByVal msg As String, ByVal clientNumber As Integer)
+    '    ' Convert the reply to byte array
+    '    Dim byData As Byte() = System.Text.Encoding.ASCII.GetBytes(msg)
+
+    '    Dim workerSocket As Socket = DirectCast(m_workerSocketList(clientNumber - 1), Socket)
+    '    workerSocket.Send(byData)
+    'End Sub
+
+    Public Sub SendDataToClient(ByVal data As Byte(), ByVal clientNumber As Integer)
 
         Dim workerSocket As Socket = DirectCast(m_workerSocketList(clientNumber - 1), Socket)
-        workerSocket.Send(byData)
-    End Sub
-
-    Public Sub SendImgToClient(ByVal img As System.Drawing.Image, ByVal clientNumber As Integer)
-        Dim ms As New System.IO.MemoryStream()
-        img.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
-        Dim workerSocket As Socket = DirectCast(m_workerSocketList(clientNumber - 1), Socket)
-        workerSocket.Send(ms.ToArray())
+        workerSocket.Send(data)
     End Sub
 
     ''AGREGADO: RAMAYAC

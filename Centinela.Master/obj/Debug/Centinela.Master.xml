@@ -6,7 +6,20 @@ Centinela.Master
 </name>
 </assembly>
 <members>
-<member name="F:Centinela.Master.frmSesion.components">
+<member name="P:Centinela.Master.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:Centinela.Master.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+</summary>
+</member><member name="T:Centinela.Master.My.Resources.Resources">
+	<summary>
+  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+</summary>
+</member><member name="F:Centinela.Master.frmSesion.components">
 	<summary>
  Designer variable used to keep track of non-visual components.
  </summary>
@@ -21,19 +34,6 @@ Centinela.Master
  Do not change the method contents inside the source code editor. The Forms designer might
  not be able to load this method if it was changed manually.
  </summary>
-</member><member name="P:Centinela.Master.My.Resources.Resources.ResourceManager">
-	<summary>
-  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
-</summary>
-</member><member name="P:Centinela.Master.My.Resources.Resources.Culture">
-	<summary>
-  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
-  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
-</summary>
-</member><member name="T:Centinela.Master.My.Resources.Resources">
-	<summary>
-  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
-</summary>
 </member><member name="M:Centinela.Master.NotificarBandeja.ShellNot.SetForegroundWindow(System.IntPtr)">
 	<summary>
  if "this.focus()" can't work, u can try this
