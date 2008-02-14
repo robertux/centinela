@@ -240,7 +240,10 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="sen">sensor a modificar, ya incluidos sus valores modificados</param>
         Public Sub ModificarSensor(ByVal sen As Sensor)
-            If Me.Estado Then
+            If Not (Me.Estado = ConnectionState.Open) Then
+                Me.Conectar()
+            End If
+            Try
                 Me._cmd.CommandText = "update Sensor set nombre=@nombre, fk_tipo = @tipo, fk_estado = @estado, pin=@pin where pk_id = @id"
                 Me._cmd.Parameters.Clear()
                 Me._cmd.Parameters.Add(New SqlParameter("@nombre", sen.Nombre))
@@ -249,9 +252,9 @@ Namespace ClassLib
                 Me._cmd.Parameters.Add(New SqlParameter("@id", sen.Id))
                 Me._cmd.Parameters.Add(New SqlParameter("@pin", sen.Pin))
                 Me._cmd.ExecuteNonQuery()
-            Else
-                Me.Conectar()
-            End If
+            Catch ex As Exception
+                'pass
+            End Try
         End Sub
 
 		''' <summary>

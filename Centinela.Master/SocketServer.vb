@@ -133,12 +133,9 @@ Imports Centinela.ClassLib
 
             RaiseEvent DataReceived(socketData.m_clientNumber, socketData.dataBuffer)
             'ENVIAMOS PETICION DE REGRESO A CASA :)
-            Exit Sub
-            Dim Respuesta() As Byte = AccesoRemoto.ObjetoABinario(frmMaster.peticion)
-
-            Dim workerSocket As Socket = DirectCast(socketData.m_currentSocket, Socket)
-            workerSocket.Send(Respuesta)
-
+            'Dim Respuesta() As Byte = AccesoRemoto.ObjetoABinario(frmMaster.peticion)
+            'Dim workerSocket As Socket = DirectCast(socketData.m_currentSocket, Socket)
+            'workerSocket.Send(Respuesta)
             ' Seguimos esperando por los datos del Socket
 
 				WaitForData(socketData.m_currentSocket, socketData.m_clientNumber)
