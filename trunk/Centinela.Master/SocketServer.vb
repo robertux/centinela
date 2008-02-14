@@ -17,6 +17,7 @@ Imports System.Threading
 	Public Class SocketServer
 		Public Delegate Sub UpdateRichEditCallback(ByVal text As String)
 		Public Delegate Sub UpdateClientListCallback()
+		Public Event DataReceived(byval nClient as Integer, byval data as String)
 
 		Public pfnWorkerCallBack As AsyncCallback
 		Private m_mainSocket As Socket
@@ -117,6 +118,7 @@ Imports System.Threading
 				MessageBox.Show(se.Message)
 			End Try
 		End Sub
+		
 		' This the call back function which will be invoked when the socket
 		' detects any client writing of data on the stream
 		Public Sub OnDataReceived(ByVal asyn As IAsyncResult)
@@ -132,17 +134,18 @@ Imports System.Threading
 				Dim charLen As Integer = d.GetChars(socketData.dataBuffer, 0, iRx, chars, 0)
 
 				Dim szData As New String(chars)
-				Dim msg As String = "" + socketData.m_clientNumber.ToString() + ":"
+				'Dim msg As String = "" + socketData.m_clientNumber.ToString() + ":"
 				'	//	//	//	//AppendToRichEditControl(msg + szData);
-				MsgBox(msg + szData)
+				'MsgBox(msg + szData)
+				RaiseEvent DataReceived(socketData.m_clientNumber, szData)
 
 				' Send back the reply to the client
-				Dim replyMsg As String = "Server Reply:" + szData.ToUpper()
+				'Dim replyMsg As String = "Server Reply:" + szData.ToUpper()
 				' Convert the reply to byte array
-				Dim byData As Byte() = System.Text.Encoding.ASCII.GetBytes(replyMsg)
+				'Dim byData As Byte() = System.Text.Encoding.ASCII.GetBytes(replyMsg)
 
-				Dim workerSocket As Socket = DirectCast(socketData.m_currentSocket, Socket)
-				workerSocket.Send(byData)
+				'Dim workerSocket As Socket = DirectCast(socketData.m_currentSocket, Socket)
+				'workerSocket.Send(byData)
 
 				' Continue the waiting for data on the Socket
 
@@ -163,7 +166,7 @@ Imports System.Threading
 			End Try
 		End Sub
 
-		Private Function GetIP() As String
+		public Function GetIP() As String
 			Dim strHostName As String = Dns.GetHostName()
 
 			' Find host by name
@@ -178,7 +181,7 @@ Imports System.Threading
 			Return IPStr
 		End Function
 
-		Private Sub CloseSockets()
+		public Sub CloseSockets()
 			If m_mainSocket IsNot Nothing Then
 				m_mainSocket.Close()
 			End If
@@ -192,7 +195,7 @@ Imports System.Threading
 			Next
 		End Sub
 
-		Private Sub SendMsgToClient(ByVal msg As String, ByVal clientNumber As Integer)
+		public Sub SendMsgToClient(ByVal msg As String, ByVal clientNumber As Integer)
 			' Convert the reply to byte array
 			Dim byData As Byte() = System.Text.Encoding.ASCII.GetBytes(msg)
 
