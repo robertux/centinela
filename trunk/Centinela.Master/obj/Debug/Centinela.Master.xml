@@ -8,16 +8,16 @@ Centinela.Master
 <members>
 <member name="P:Centinela.Master.My.Resources.Resources.ResourceManager">
 	<summary>
-  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+  Returns the cached ResourceManager instance used by this class.
 </summary>
 </member><member name="P:Centinela.Master.My.Resources.Resources.Culture">
 	<summary>
-  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
-  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
 </summary>
 </member><member name="T:Centinela.Master.My.Resources.Resources">
 	<summary>
-  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+  A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
 </member><member name="F:Centinela.Master.frmSesion.components">
 	<summary>

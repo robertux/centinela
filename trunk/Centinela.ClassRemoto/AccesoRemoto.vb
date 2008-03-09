@@ -88,6 +88,16 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="usr">Usuario a agregar a la tabla</param>
         Public Sub AgregarUsuario(ByVal usr As Usuario)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Dim vis As Integer
+            If (usr.Visible) Then
+                vis = 1
+            Else
+                vis = 0
+            End If
+            Me.peticion.Mensaje = "addusr;" + usr.Id + ";" + usr.NombreCompleto + ";" + usr.NombreUsuario + ";" + usr.Clave + ";" + vis.ToString()
+            Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
         End Sub
 
         ''' <summary>
@@ -95,6 +105,17 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="usr">Usuario a modificar, ya incluidos sus valores modificados</param>
         Public Sub ModificarUsuario(ByVal usr As Usuario)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Dim vis As Integer
+            If (usr.Visible) Then
+                vis = 1
+            Else
+                vis = 0
+            End If
+            Me.peticion.Mensaje = "editusr;" + usr.Id + ";" + usr.NombreCompleto + ";" + usr.NombreUsuario + ";" + usr.Clave + ";" + vis.ToString()
+            Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
         End Sub
 
         ''' <summary>
@@ -102,6 +123,11 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="usr">Usuario a eliminar</param>
         Public Sub EliminarUsuario(ByVal usr As Usuario)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "delusr;" + usr.Id
+            Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
         End Sub
 
         ''' <summary>
@@ -109,7 +135,16 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="id">Id del registro a seleccionar</param>
         Public Function SelecUsuario(ByVal id As String) As Usuario
-
+            Me.Conectar()
+            'Que vamos a hacer con el objeto enviado
+            peticion = New Peticion()
+            peticion.Mensaje = "loginbyid;" + id
+            Dim b() As Byte
+            'recibir datos!
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
+            peticion = AccesoRemoto.BinarioAObjeto(b) 'viva el casting implicito            
+            Return CType(peticion.objeto, Usuario)
         End Function
 
         ''' <summary>
@@ -120,12 +155,14 @@ Namespace ClassLib
         Public Function SelecUsuario(ByVal nom As String, ByVal clave As String) As Usuario
             Me.Conectar()
             'Que vamos a hacer con el objeto enviado
+            peticion = New Peticion()
             peticion.Mensaje = "login;" + nom + ";" + clave
             Dim b() As Byte
             'recibir datos!
             b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
-            peticion = AccesoRemoto.BinarioAObjeto(b) 'viva el casting implicito
-            Return CType(peticion.objeto, Usuario) 'y ya?
+            Me.Desconectar()
+            peticion = AccesoRemoto.BinarioAObjeto(b) 'viva el casting implicito            
+            Return CType(peticion.objeto, Usuario) 'y ya?            
         End Function
 
         ''' <summary>
@@ -133,6 +170,14 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="condicion">Condicion para filtrar los registros a seleccionar</param>
         Public Function SelectUsuarios(Optional ByVal condicion As String = "True") As List(Of Usuario)
+            Me.Conectar()
+            peticion = New Peticion()
+            peticion.Mensaje = "selectusuarios"
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            peticion = AccesoRemoto.BinarioAObjeto(b)
+            Return CType(peticion.objeto, List(Of Usuario))
+            Me.Desconectar()
         End Function
 
 #End Region
@@ -144,6 +189,14 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="id">Id del registro a seleccionar</param>
         Public Function SelecAdministrador(ByVal id As String) As Administrador
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "selectadminbyid;" + id
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
+            peticion = AccesoRemoto.BinarioAObjeto(b)
+            Return CType(peticion.objeto, Administrador)            
         End Function
 
         ''' <summary>
@@ -152,6 +205,14 @@ Namespace ClassLib
         ''' <param name="nom">nombre del administrador dentro del registro</param>
         ''' <param name="clave">clave del administrador dentro del registro</param>
         Public Function SelecAdministrador(ByVal nom As String, ByVal clave As String) As Administrador
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "selectadmin;" + nom + ";" + clave
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
+            peticion = AccesoRemoto.BinarioAObjeto(b)
+            Return CType(peticion.objeto, Administrador)
         End Function
 
 #End Region
@@ -163,6 +224,11 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="sen">Objeto sensor del cual tomar los datos</param>
         Public Sub AgregarSensor(ByVal sen As Sensor)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "addsen;" + sen.Id.ToString() + ";" + sen.Nombre + ";" + sen.Pin.ToString + ";" + sen.Tipo.ToString() + ";" + sen.EstadoActual.ToString()
+            Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
         End Sub
 
         ''' <summary>
@@ -172,6 +238,11 @@ Namespace ClassLib
         Public Sub ModificarSensor(ByVal sen As Sensor)
             'Esta funcion NUNCA se ejecuta remotamente, esto lo hace "MASTER"
             'pero como uno nunca sabe... ni modo mejor se deja
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "editsen;" + sen.Id.ToString() + ";" + sen.Nombre + ";" + sen.Pin.ToString + ";" + sen.Tipo.ToString() + ";" + sen.EstadoActual.ToString()
+            Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
         End Sub
 
         ''' <summary>
@@ -179,6 +250,11 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="sen">Sensor a eliminar</param>
         Public Sub EliminarSensor(ByVal sen As Sensor)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "delsen;" + sen.Id.ToString()
+            Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
         End Sub
 
 #Region "Estado/Tipo"
@@ -188,6 +264,14 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="nomEstadoSensor">El nombre del estado del sensor</param>
         Public Function GetIdEstadoSensor(ByVal nomEstadoSensor As String) As Integer
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "getidestadosen;" + nomEstadoSensor
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, Integer)
         End Function
 
         ''' <summary>
@@ -195,18 +279,42 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="idEstadoSensor">El id del estado de sensor</param>
         Public Function GetNombreEstadoSensor(ByVal idEstadoSensor As Integer) As String
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "getnomestadosen;" + idEstadoSensor.ToString()
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, String)
         End Function
 
         ''' <summary>
         ''' Devuelve una lista que contiene todos los nombres de los estados de sensor existentes en la tabla de estados de sensor
         ''' </summary>
         Public Function GetEstadosSensor() As List(Of String)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "getestadossensor"
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, List(Of String))
         End Function
 
         ''' <summary>
         ''' Devuelve una lista que contiene todos los nombres de los tipos de sensor existentes en la tabla tipos de sensor
         ''' </summary>
         Public Function GetTiposSensor() As List(Of String)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "gettipossensor"
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, List(Of String))
         End Function
 
         ''' <summary>
@@ -214,6 +322,14 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="nomTipoSensor">El nombre del tipo del sensor</param>
         Public Function GetIdTipoSensor(ByVal nomTipoSensor As String) As Integer
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "getidtiposensor;" + nomTipoSensor
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, Integer)
         End Function
 
         ''' <summary>
@@ -221,6 +337,14 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="idTipoSensor">El id del tipo de sensor</param>
         Public Function GetNombreTipoSensor(ByVal idTipoSensor As Integer) As String
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "getnomtiposensor;" + idTipoSensor.ToString()
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, String)
         End Function
 
 #End Region
@@ -230,12 +354,28 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="id">El id del sensor del cual tomar los datos</param>
         Public Function SelectSensor(ByVal id As String) As Sensor
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "selectsen;" + id                        
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, Sensor)
         End Function
 
         ''' <summary>
         ''' Devuelve una lista de objetos Sensor basados en todos los registros de la tabla sensores
         ''' </summary>
         Public Function SelectSensores() As List(Of Sensor)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "selectsensores"
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, List(Of Sensor))
         End Function
 
         ''' <summary>
@@ -243,6 +383,14 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="idMapa">el id del Mapa asociado con los sensores a seleccionar</param>
         Public Function SelectSensores(ByVal idMapa As Integer) As List(Of Sensor)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "selectsensoresbymapa;" + idMapa.ToString()
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, List(Of Sensor))
         End Function
 
         ''' <summary>
@@ -251,6 +399,14 @@ Namespace ClassLib
         ''' <param name="idSen">El id del sensor</param>
         ''' <param name="idMapa">El id del mapa</param>
         Public Function GetPosSensor(ByVal idSen As Integer, ByVal idMapa As Integer) As System.Drawing.Point
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "getpossen;" + idSen.ToString() + ";" + idMapa.ToString()
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, System.Drawing.Point)
         End Function
 
         ''' <summary>
@@ -260,6 +416,11 @@ Namespace ClassLib
         ''' <param name="idMapa">El id del mapa</param>
         ''' <param name="nuevaPos">Un objeto Point que contiene la nueva posicion del sensor en el mapa</param>
         Public Sub SetPosSensor(ByVal idSen As Integer, ByVal idMapa As Integer, ByVal nuevaPos As System.Drawing.Point)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "setpossen;" + idSen.ToString() + ";" + idMapa.ToString() + ";" + nuevaPos.X.ToString() + ";" + nuevaPos.Y.ToString()
+            Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
         End Sub
 
         ''' <summary>
@@ -269,6 +430,11 @@ Namespace ClassLib
         ''' <param name="idSen">El id del sensor a relacionar</param>
         ''' <param name="idMapa">El id del mapa a relacionar</param>
         Public Sub AgregarSensorMapa(ByVal nuevoId As Integer, ByVal idSen As Integer, ByVal idMapa As Integer)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "addsentomapa;" + nuevoId.ToString() + ";" + idSen.ToString() + ";" + idMapa.ToString()
+            Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
         End Sub
 
         ''' <summary>
@@ -277,6 +443,11 @@ Namespace ClassLib
         ''' <param name="idSen">El id del sensor relacionado</param>
         ''' <param name="idMapa">El id del mapa relacionado</param>
         Public Sub EliminarSensorMapa(ByVal idSen As Integer, ByVal idMapa As Integer)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "delsenfrommapa;" + idSen.ToString() + ";" + idMapa.ToString()
+            Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
         End Sub
 
 #End Region
@@ -373,6 +544,14 @@ Namespace ClassLib
         ''' Devuelve una lista de objetos Mapa basados en los registros de la tabla mapas
         ''' </summary>
         Public Function SelectMapas() As List(Of Mapa)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "selectmapas"
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, List(Of Mapa))
         End Function
 
         ''' <summary>
@@ -380,6 +559,14 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="idSen">El id del sensor relacionado</param>
         Public Function SelectMapas(ByVal idSen As Integer) As List(Of Mapa)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "selectmapasbyidsen;" + idSen.ToString()
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.peticion = AccesoRemoto.BinarioAObjeto(b)
+            Me.Desconectar()
+            Return CType(Me.peticion.objeto, List(Of Mapa))
         End Function
 
         ''' <summary>
@@ -387,6 +574,11 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="mpa">El objeto Mapa del cual tomar los datos</param>
         Public Sub AgregarMapa(ByVal mpa As Mapa)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "addmapa;" + mpa.Id.ToString() + ";" + mpa.Nombre
+            Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
         End Sub
 
         ''' <summary>
@@ -394,6 +586,11 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="mpa">El ojbeto Mapa a eliminar</param>
         Public Sub EliminarMapa(ByVal mpa As Mapa)
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "delmapa;" + mpa.Id.ToString()
+            Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
         End Sub
 
         ''' <summary>
@@ -401,6 +598,13 @@ Namespace ClassLib
         ''' </summary>
         ''' <param name="mpa">El mapa asociado con la imagen</param>
         Public Function GetImgMapa(ByVal mpa As Mapa) As Byte()
+            Me.Conectar()
+            Me.peticion = New Peticion()
+            Me.peticion.Mensaje = "getimgmapa;" + mpa.Id.ToString()
+            Dim b() As Byte
+            b = Me.sClient.SendAndRecDataSync(AccesoRemoto.ObjetoABinario(peticion))
+            Me.Desconectar()
+            Return b
         End Function
 
         ''' <summary>
