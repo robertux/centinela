@@ -1,0 +1,1 @@
+a program to monitor smoke and door sensors and update a database, remote clients will also interact with the program
